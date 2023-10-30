@@ -1,5 +1,5 @@
 <div align=center>
-	<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=BrileyKim%20Github!&fontSize=90" />	
+	<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=여러분 만나서 반가워요~%20Github!&fontSize=50" />	
 </div>
 <div align=center>	
 	<p>✨ Platforms & Languages ✨</p>
