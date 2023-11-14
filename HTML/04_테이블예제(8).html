@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블예제(7)</title>
+</head>
+<body>
+    <h1>종합 문제(2)</h1>
+    <table border="1">
+        <caption>출장비용 보고서</caption>
+        <colgroup>
+            <col>
+            <col>
+            <col style="background-color: lavenderblush;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>대분류</th>
+                <th>중분류</th>
+                <th>금액</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>교통비</td>
+                <td>ktx</td>
+                <td>100000</td>
+            </tr>
+            <tr>
+                <td rowspan="2">식비</td>
+                <td>점심</td>
+                <td>20000</td>
+            </tr>
+            <tr>
+                <td>저녁</td>
+                <td>200000</td>
+            </tr>
+            <tr>
+                <td>숙박비</td>
+                <td>모텔</td>
+                <td>50000</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">총합계</td>
+                <td>1900000</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
