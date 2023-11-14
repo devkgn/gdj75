@@ -6,6 +6,27 @@
     <title>테이블예제(3)</title>
 </head>
 <body>
-    
+    <h1>행 통합과 열 통합</h1>
+    <table border="1">
+        <caption>행 통합 테이블</caption>
+        <colgroup>
+            <col width="100px">
+            <col width="200px">
+        </colgroup>
+        <tr>
+            <th>1행</th>
+            <td>1행 1열</td>
+        </tr>
+        <tr>
+            <th rowspan="2">2행</th>
+            <td>2행 2열</td>
+        </tr>
+        <tr>
+            <td>3행 2열</td>
+        </tr>
+    </table>
+    <table border="1">
+        <caption>열 통합 테이블</caption>
+    </table>
 </body>
 </html>
