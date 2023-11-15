@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form예제(3)</title>
+</head>
+<body>
+    <h1>폼 태그(2)</h1>
+    <form>
+        <fieldset>
+            <legend>납품자 정보</legend>
+            <label for="name">1. 납품자명 :</label>
+            <input type="text" name="name" id="name" placeholder="name">
+            <br>
+            <label for="email">2. email : </label>
+            <input type="email" name="email" id="email" placeholder="email">
+        </fieldset>
+        <fieldset>
+            <legend>납품 정보</legend>
+            <ul>
+                <li>
+                    <label for="product_name">상품명 :</label>
+                    <input type="text" name="product_name" id="product_name">
+                </li>
+                <li>
+                    <label for="product_num">납품수량 : </label>
+                    <input id="product_num" type="number" placeholder="최소 100">
+                </li>
+                <li>
+                    <label for="product_level">납품등급 :</label>
+                    <input id="product_level" type="range" name="product_level">
+                </li>
+                <li>
+                    <label for="product_etc">기타사항 : </label>
+                    <textarea id="product_etc"></textarea>
+                </li>
+            </ul>
+        </fieldset>
+        <input type="submit" value="send message">
+    </form>
+</body>
+</html>
