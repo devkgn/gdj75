@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form예제(5)</title>
+</head>
+<body>
+    <h1>백엔드 개발자 지원서</h1>
+    <p>Java, Spring, DataBase에 대한 기술적 이해와 경험이 있는 분을 찾습니다.</p>
+    <hr>
+    <form>
+        <table>
+            <tr>
+                <th>개인정보</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <label for="dev_name">이름</label>
+                </td>
+                <td>
+                    <input id="dev_name" type="text" 
+                    name="dev_name" placeholder="공백없이 입력하세요.">
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <label for="dev_phone">연락처</label>
+                </td>
+                <td>
+                    <input type="text" id="dev_phone" name="dev_phone">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <th>지원분야</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="radio" id="back" name="position">
+                </td>
+                <td>
+                    <label for="back">백엔드 개발</label>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="radio" name="position" id="server">
+                </td>
+                <td>
+                    <label for="server">서버 개발</label>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="radio" name="position" id="refactoring">
+                </td>
+                <td>
+                    <label for="refactoring">개발 환경 개선</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <th>지원동기</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <textarea cols="40" rows="5" placeholder="지원 동기를 간략히 써주세요."></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <input type="submit" value="접수하기">
+                    <input type="reset" value="다시쓰기">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
