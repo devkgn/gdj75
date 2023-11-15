@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form예제(2)</title>
+</head>
+<body>
+    <h2>폼 태그 (1)</h2>
+    <form>
+        <fieldset>
+            <legend>고객정보</legend>
+            <label for="user_name">고객명 : </label>
+            <input id="user_name" type="text">
+            <br>
+            <label for="user_phone">전화번호 : </label>
+            <input type="text" id="user_phone">
+            <br>
+            <label for="user_email">E-mail : </label>
+            <input type="email" id="user_email">
+        </fieldset>
+        <fieldset>
+            <legend>피자 사이즈</legend>
+            <input type="radio" name="size" id="small">
+            <label for="small">Small</label><br>
+            <input type="radio" name="size" id="medium">
+            <label for="medium">Medium</label><br>
+            <input type="radio" name="size" id="large">
+            <label for="large">Large</label>
+        </fieldset>
+        <fieldset>
+            <legend>토핑 선택</legend>
+            <input type="checkbox" name="toping" id="shrimp">
+            <label for="shrimp">새우</label><br>
+            <input type="checkbox" name="toping" id="sweet">
+            <label for="sweet">고구마</label><br>
+            <input type="checkbox" name="toping" id="potato">
+            <label for="potato">감자</label><br>
+            <input type="checkbox" name="toping" id="apple">
+            <label for="apple">파인애플</label>
+        </fieldset>
+        <br>
+        <label for="delivery">희망 배송 시간 :</label>
+        <input type="time" id="delivery"><br><br>
+        <input type="button" value="주문하기">
+    </form>
+</body>
+</html>

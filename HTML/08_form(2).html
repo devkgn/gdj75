@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form(2)</title>
+</head>
+<body>
+    <!-- color -->
+    <input type="color" name="user_color">
+    <!-- number,range -->
+    <input type="number" name="user_number" min="0" max="10" step="2">
+    <input type="range" name="user_range" min="0" max="10" step="2">
+    <!-- 날짜,시간 --><br>
+    <input type="date" name="user_date">
+    <input type="datetime-local" name="user_local">
+    <input type="month" name="user_month">
+    <input type="week" name="user_week">
+    <input type="time" name="user_time"><br>
+    <!-- 체크 박스 : 여러개 선택-->
+    <input type="checkbox" id="male" name="user_gender">
+    <label for="male">남</label>
+    <input type="checkbox" name="user_gender">
+    <label>여</label><br>
+    <!-- 라디오 : 하나만 선택-->
+    <input type="radio" name="user_addr" id="seoul">
+    <label for="seoul">서울시</label>
+    <input type="radio" name="user_addr" id="bu">
+    <label for="bu">부평</label>
+    <!-- 여러 값 표현 태그 -->
+</body>
+</html>
