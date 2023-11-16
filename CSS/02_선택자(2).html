@@ -4,8 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>id선택자, class선택자</title>
+    <style>
+        /* class가 classSelect인 태그의 배경색 변경 */
+        .classSelect{
+            background-color: darkkhaki;
+        }
+        /* id가 idSelect인 태그의 배경색 변경 */
+        #idSelect{
+            background-color: antiquewhite;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>클래스 선택자</h1>
+    <h2>표시 : .</h2>
+    <h1>아이디 선택자</h1>
+    <h2>표시 : #</h2>
+    <table>
+        <tr>
+            <td class="classSelect">1</td>
+            <td id="idSelect">2</td>
+            <td class="classSelect">3</td>
+        </tr>
+        <tr>
+            <td class="classSelect">4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+    </table>
+    <style>
+        .egg{background-color: yellow;}
+        #green{background-color: green;}
+    </style>
+    <ol>
+		<li>뜨거운 밥을 쟁반에 고르게 펼쳐 차갑게 식혀 주세요.</li>
+		<li id="green">대파 1대를 송송 썰어 준비하세요.</li>
+		<li class="egg">달걀 흰자와 노른자를 따로 분리하세요.</li>
+		<li class="egg">노른자 2개를 밥에 넣고 소금간 해줍니다.</li>
+		<li>밥과 노른자를 골고루 섞어주세요.</li>
+    </ol>
 </body>
 </html>

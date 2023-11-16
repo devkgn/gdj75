@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>후손, 자손 선택자</title>
+    <style>
+        /* 자손 선택자 */
+        /* class가 container인 부모의 자식중 h1의 배경색 변경 */
+        .container>h1{
+            background-color: aqua;
+        }
+        /* 후손 선택자 */
+        /* class가 container인 할아버지의 후손 중에 h1의 글자색 변경 */
+        .container h1{
+            color: orange;
+        }
+        /* class가 container인 태그의 자식 중에 
+        div의 자식중에 ul의 자식중에 li의 자식인 a */
+        .container>div>ul>li>a{
+            color: brown;
+        }
+        /* class가 container인 태그의 후손 중에 
+        a태그의 href 속성의 값이 01_css기초.html */
+        .container a[href='01_CSS기초.html']{
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>첫째</h1>
+        <p class="content">
+            둘째
+        </p>
+        <div>
+            <h1>셋째의 첫째 자식</h1>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>
+                    <a href="01_CSS기초.html">3</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <style>
+        /* div#parent h1 */
+        div#parent > div.child > h1{
+            background-color: crimson;
+        }
+        ol span.sprout{
+            background-color: gold;
+        }
+    </style>
+    <div id="parent">
+        <div class="child">
+           <h1>콩나물 무침</h1>
+           <img src="img/kong.jpg" width="300" height="300"/>
+           <ol>
+              <li><span class="sprout">콩나물</span>을 씻습니다</li>
+              <li><span class="sprout">콩나물</span>을 볶아요</li>
+              <li>고춧가루,간장,설탕을 살포시 뿌려주시고요</li>
+              <li>파,마늘까지 얹어주세요.</li>
+              <li>타지않도록 물5스푼 넣어주세요.</li>
+              <li>들기름을 살짝 넣고 뚜껑덮고 센불에 3분~</li>
+              <li><span class="sprout">콩나물</span>무침 완성!</li>
+           </ol>
+        </div>
+     </div>
+     
+</body>
+</html>
