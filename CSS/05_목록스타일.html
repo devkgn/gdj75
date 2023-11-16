@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목록 스타일</title>
+    <style>
+        /* class가 ulstyle인 태그의 목록 스타일 변경 */
+        .ulstyle{
+            /* list-style-type: disc;
+            list-style-position: inside; */
+            list-style: disc inside;
+            
+            /* list-style-type: circle; */
+            /* list-style-type: square; */
+            /* list-style-type: none; */
+        }
+        /* class가 olstyle인 태그의 목록 스타일을 변경 */
+        .olstyle{
+            /* list-style-type: decimal; */
+            /* list-style-type: decimal-leading-zero; */
+            /* list-style-type: lower-roman; */
+            /* list-style-type: upper-roman; */
+            /* list-style-type: lower-alpha; */
+            list-style-type: upper-alpha;
+        }
+        /* class가 listimage인 태그의 목록 기호 이미지로 변경 */
+        .listimage{
+            list-style-image: url('img/sponge_list.png');
+        }
+    </style>
+</head>
+<body>
+    <ul class="ulstyle">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ol class="olstyle">
+        <li>꼬부기</li>
+        <li>어니부기</li>
+        <li>거북왕</li>
+    </ol>
+    <ul class="listimage">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+</body>
+</html>

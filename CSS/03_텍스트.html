@@ -4,8 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>텍스트 스타일</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <style>
+        /* class가 fontfamily인 태그의 글꼴을 궁서로 적용 */
+        .fontfamily{
+            font-family: '궁서';
+        }
+        .webfont{
+            font-family: 'Black Han Sans', sans-serif;
+        }
+        /* id가 sizecontainer인 div의 글자크기 지정 */
+        div#sizecontainer{font-size: 40px;}
+        /* id가 sizecontainer인 div의 자손중에서
+        마지막 p태그의 글자 크기 지정 */
+        div#sizecontainer > p:last-child{
+            /* font-size: 0.5em; */
+            font-size: 0.5rem;
+        }
+        /* html{
+            font-size: 80px;
+        } */
+    </style>
 </head>
 <body>
-    
+    <h1>글꼴을 설정하는 방법</h1>
+    <p class="fontfamily">기본글꼴 사용하기</p>
+    <p class="webfont">웹폰트 적용하기</p>
+    <div id="sizecontainer">
+        <p>em : 부모의 크기 기준</p>
+        <p>rem : 루트의 크기 기준</p>
+    </div>
+    <h1>문자의 굵기 변경하기</h1>
+    <p class="textcolor" style="font-weight: normal;">normal한애</p>
+    <p style="font-weight: bold;">bold한 애</p>
+    <p class="textcolor" style="font-weight: bolder;">bolder한 애</p>
+    <p style="font-weight: lighter;">lighter한 애</p>
+    <p style="font-weight: 700;">숫자로 굵기 변경</p>
+    <h1>글자 색상 설정하기</h1>
+    <style>
+        .textcolor{color: rgb(224, 201, 188);}
+        /* class가 decoration인 태그의 자손중에 
+        id가 under인 태그는 밑줄표시
+        id가 over인 태그는 윗줄표시
+        id가 through인 태그는 취소선 표시 */
+        .decoration > #under{
+            text-decoration: underline;
+        }
+        .decoration > #over{
+            text-decoration: overline;
+        }
+        .decoration > #through{
+            text-decoration: line-through;
+        }
+        a{
+            text-decoration: none;
+        }
+        .letter{
+            letter-spacing: 10px;
+        }
+        .word{
+            word-spacing: 30px;
+        }
+    </style>
+    <h1>단어, 문장에 스타일 추가</h1>
+    <div class="decoration">
+        <span id="under">Lorem ipsum dolor sit amet</span><br>
+        <span id="over">Lorem ipsum dolor sit amet</span><br>
+        <span id="through">Lorem ipsum dolor sit amet</span>
+    </div>
+    <a href="https://www.naver.com">네이버</a>
+    <h1>문자간 거리, 단어간 거리 설정</h1>
+    <h3>Lorem ipsum dolor sit amet</h3>
+    <h3 class="letter">Lorem ipsum dolor sit amet</h3>
+    <h3 class="word">Lorem ipsum dolor sit amet</h3>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
