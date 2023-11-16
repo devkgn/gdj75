@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영역 스타일</title>
+    <style>
+        .container{ border: 1px solid red;}
+        .absize{width: 100px; height: 100px;}
+        .resize{width: 30%; height: 200px;}
+    </style>
+</head>
+<body>
+    <h1>태그의 크기 설정하기</h1>
+    <div class="container absize">
+        절대크기
+    </div>
+    <div class="container resize">
+        상대크기
+    </div>
+    <h1>태그별 배치속성 알아보기</h1>
+    <style>
+        /* class가 container인 요소의 자식 중에서 span인 요소
+        block 요소로 속성 전환 */
+        .container > span{
+            display: block;
+            width: 300px;
+            height: 200px;
+        }
+        /* class가 container인 요소의 자식 중에서 h3인 요소
+        inline 요소로 속성 전환(block의 장점도 가지고 싶다.) */
+        .container > h3{
+            display: inline-block;
+            width: 300px;
+            height: 200px;
+        }
+        /* class가 container인 요소의 자식 중에서 img를 안보이게 처리 */
+        .container > img{
+            display: none;
+        }
+    </style>
+    <div class="container">
+        <!-- inline 속성 요소 -->
+        <img src="img/kong.jpg" alt="콩나물무침" width="200" height="200">
+        <img src="img/kong.jpg" alt="콩나물무침" width="200" height="200">
+        <img src="img/kong.jpg" alt="콩나물무침" width="200" height="200">
+        <img src="img/kong.jpg" alt="콩나물무침" width="200" height="200">
+        <span>inline 속성 요소</span>
+        <span>inline 속성 요소</span>
+    </div>
+    <div class="container">
+        <!-- block 속성 요소 -->
+        <h3>block 속성 요소들을 보자</h3>
+        <h3>block 속성 요소들을 보자</h3>
+        <h3>block 속성 요소들을 보자</h3>
+        <h3>block 속성 요소들을 보자</h3>
+    </div>
+    <!-- display:none;
+    출력하지 않는다. 
+    화면에는 보이지 않는다.
+    코드로는 존재한다. -->
+    <h1>display none 활용하기</h1>
+    <style>
+        #userId_validate{display: none;}
+    </style>
+    <div id="enrollFrm">
+        <div id="enrollPage">
+            <h2>회원가입</h2>
+            <form>
+                <input type="text" name="userId" id="userId" 
+                placeholder="아이디">
+                <span id="userId_validate">이미 존재하는 아이디입니다.</span>
+            </form>
+        </div>
+        <div id="memberStatus">
+            <ul>
+                <li>회원수 : 100</li>
+                <li>현재 접속자 : 10</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        // id가 userId인 입력창에 키보드로 무언가를 입력하면
+        // 입력한 값이 user01인지 확인
+        document.getElementById('userId').onkeyup = function(){
+            if(document.getElementById('userId').value == 'user01'){
+                document.getElementById('userId_validate').style.display='block';
+            }
+        }
+    </script>
+    <style>
+        /* class가 mar인 태그의 여백(페이지, 혹은 다른 요소 사이) */
+        .mar{
+            /* margin: 100px; */
+            /* margin: 100px 50px; */
+            /* margin: 30px 10px 5px 40px; */
+            margin-top : 40px;
+            margin-right: 80px;
+            margin-bottom: 10px;
+            margin-left: 5px;
+        }
+        /* class가 pad인 태그의 여백(테두리와 컨텐츠 사이) */
+        .pad{
+            /* padding: 50px; */
+            /* padding: 100px 50px; */
+            /* padding: 30px 10px 50px 4px; */
+            padding-top: 30px;
+            padding-right: 10px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+        }
+    </style>
+    <div class="container mar pad">
+        <div>
+            <h2 style="margin: 0;">margin이란 무엇일까요?</h2>
+            <p>padding은...?</p>
+            <h2>여백 적용 안한 h2</h2>
+        </div>
+    </div>
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
