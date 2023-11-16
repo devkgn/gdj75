@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구조 선택자</title>
+    <style>
+        /* table의 후손 tr중에 첫째 */
+        table tr:first-child{
+            background-color: gainsboro;
+        }
+        /* table의 후손 tr중에 막내 */
+        table tr:last-child{
+            background-color: skyblue;
+        }
+        /* table의 후손 tr중에 둘째 */
+        table tr:nth-child(2){
+            background-color: yellow;
+        }
+        /* table의 후손 tr중에 셋째의 후손중에 td중에 막내 */
+        table tr:nth-child(3) td:last-child{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>이름</th>
+            <th>사는곳</th>
+            <th>전화번호</th>
+        </tr>
+        <tr>
+            <td>강두현</td>
+            <td>평택</td>
+            <td>0101111111</td>
+        </tr>
+        <tr>
+            <td>김경모</td>
+            <td>부천</td>
+            <td>0102222222</td>
+        </tr>
+        <tr>
+            <td>김범서</td>
+            <td>부평</td>
+            <td>0103333333</td>
+        </tr>
+    </table>
+    <style>
+        ul>li:first-child{
+            background-color: red;
+        }
+        ul>li:nth-child(2){
+            background-color: black;
+            color: white;
+        }
+        ul>li:nth-child(3) li:nth-child(3){
+            background-color: green;
+        }
+    </style>
+    <ul>
+        <li>한식</li>
+        <li>중식</li>
+        <li>
+            양식
+            <ol>
+                <li>스파게티</li>
+                <li>리조또</li>
+                <li>샐러드</li>
+            </ol>
+        </li>
+        <li>일식</li>
+    </ul>
+</body>
+</html>

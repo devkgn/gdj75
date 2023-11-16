@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부정 선택자</title> 
+    <style>
+        /* id가 container인 div의 자손 중에서
+        class가 n인 태그들의 배경색을 변경
+        (태그명이 span이 태그 제외) */
+        div#container > .n:not(span){
+            background-color: aqua;
+        }
+        /* id가 container인 div의 자손 중에서
+        p가 아닌 태그 */
+        div#container > :not(p){
+            color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <h1>부정 선택자</h1>
+    <div id="container">
+        <p>Lorem ipsum dolor sit amet</p>
+        <p class="n">Lorem ipsum dolor sit amet</p>
+        <span class="n">Lorem ipsum dolor sit amet</span>
+        <div class="n">Lorem ipsum dolor sit amet</div>
+    </div>
+    <style>
+        p{
+            color: purple !important; 
+        }
+        #a{
+            color: blue;
+        }
+        .b{
+            color: black;
+        }
+    </style>
+    <p style="color: red;" id="a" class="b">우선순위</p>
+</body>
+</html>

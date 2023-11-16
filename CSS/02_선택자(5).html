@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>반응 선택자</title>
     <style>
-        
+        /* id가 reaction인 div의 자손중에
+        id가 p1인 p가 클릭되었을 때 배경색 변경 */
+        div#reaction > p#p1:active{
+            background-color: magenta;
+        }
+        /* id가 reaction인 div의 자손중에서
+        id가 p2인 p에 파우스 포인터가 올라가면 글자색 변경 */
+        div#reaction > p#p2:hover{
+            color: hotpink;
+        }
     </style>
 </head>
 <body>
@@ -14,5 +23,47 @@
         <p id="p1">마우스를 클릭하면 배경색 변경</p>
         <p id="p2">마우스 포인터를 올리면 글자색 변경</p>
     </div>
+    <h1>상태 선택자란?</h1>
+    <style>
+        /* id가 condition인 태그의 자손중에
+        name이 gender인 input이 체크 상태인 경우 그림자 추가 */
+        #condition > input[name='gender']:checked{
+            box-shadow: 0 0 0 3px lime;
+        }
+        /* id가 condition인 태그의 자손 중에
+        name이 user_id인 input에 초점이 맞춰진 경우 그림자 추가 */
+        #condition > input[name='user_id']:focus{
+            box-shadow: 0 0 0 3px blueviolet;
+        }
+        /* id가 condition인 태그의 자손 중에
+        type이 text인 input이 사용 불가능한 경우 배경색 빨간색 추가 */
+        #condition > input[type="text"]:disabled{
+            background-color: red;
+        }
+    </style>
+    <div id="condition">
+        <input type="text" name="user_id"><br>
+        <input type="checkbox" name="gender" id="male">
+        <label for="male">남</label><br>
+        <input type="text" name="user_name" disabled>
+    </div>
+    <style>
+        #btn1:hover{
+            background-color: aquamarine;
+        }
+        #btn2:active{
+            background-color: aliceblue;
+        }
+    </style>
+    <button id="btn1">1번 버튼</button>
+    <button id="btn2">2번 버튼</button>
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 </body>
 </html>
