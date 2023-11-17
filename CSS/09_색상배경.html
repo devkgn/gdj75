@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>색상, 배경 스타일</title>
+    <style>
+        .container{
+            width: 400px; height: 400px;
+            border: 6px dotted palevioletred;
+        }
+        .bgcolor{
+            /* background-color: #4287f5; */
+            background-color: rgba(66, 135, 245, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <h1>배경색 지정하기</h1>
+    <div class="container bgcolor">
+        배경색을 지정한 곳
+    </div>
+    <h1>배경 이미지 넣기</h1>
+    <style>
+        .bgimage{
+            background-image: url('img/sponge_list.png');
+        }
+        .bgrepeat{
+            /* background-repeat: repeat; */
+            /* background-repeat: repeat-x; */
+            /* background-repeat: repeat-y; */
+            background-repeat: no-repeat;
+        }
+        .bgposition{
+            /* background-position: center; */
+            /* background-position: bottom; */
+            background-position: right bottom;
+        }
+    </style>
+    <div class="container bgimage">
+        배경에 이미지 넣기
+    </div>
+    <div class="container bgimage bgrepeat">
+        배경에 이미지 넣기
+    </div>
+    <div class="container bgimage bgrepeat bgposition">
+        배경 이미지의 위치를 조정
+    </div>
+    <style>
+        .container2{
+            width: 500px; height: 500px;
+            border: 5px dotted darkorange;
+            background-image: url('img/dung.png');
+        }
+        .bgsize{
+            /* auto : 맞춤, contain : 확대, cover : 채우기 */
+            /* background-size: auto; */
+            /* background-size: contain; */
+            /* background-size: cover; */
+            background-size: 50% 100%;
+        }
+    </style>
+    <div class="container2 bgsize">
+        배경 이미지 크기 조정
+    </div>
+    <style>
+        .bgattachment{
+            width: 100%; height: 800px;
+            border: 1px solid green;
+            background-image: url('img/dung.png');
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
+    </style>
+    <div class="bgattachment">배경고정</div>
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
