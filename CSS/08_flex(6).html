@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-grow, flex-shrink, flex-basis</title>
+    <style>
+        .container{
+            background-color: lightblue;
+            width: 300px; display: flex;
+        }
+        .item{
+            background-color: lightpink;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <style>
+        #zerozero > .item{
+            /* flex-grow: 0;
+            flex-shrink: 0;
+            flex-basis: 300px; */
+            flex: 0 0 300px;
+        }
+    </style>
+    <h2>flex-grow : 0 , flex-shrink : 0</h2>
+    <div class="container" id="zerozero">
+        <div class="item">10</div>
+        <div class="item">20</div>
+        <div class="item">30</div>
+    </div>
+    <style>
+        #zeroone > .item{
+            /* flex-grow: 0;
+            flex-shrink: 1;
+            flex-basis: 300px; */
+            flex: 0 1 300px;
+        }
+    </style>
+    <!-- flex-grow가 0 : container의 width가 커지면
+    basis까지는 커지지만, 그 이상 커지지 않는다. -->
+    <h2>flex-grow : 0 , flex-shrink : 1</h2>
+    <div class="container" id="zeroone">
+        <div class="item">10</div>
+        <div class="item">20</div>
+        <div class="item">30</div>
+    </div>
+    <style>
+        #onezero > .item{
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: 300px;
+        }
+    </style>
+    <!-- flex-shrink가 0 : container의 width가 작아지면
+    basis까지만 작아진다. -->
+    <h2>flex-grow : 1 , flex-shrink : 0</h2>
+    <div class="container" id="onezero">
+        <div class="item">10</div>
+        <div class="item">20</div>
+        <div class="item">30</div>
+    </div>
+    <style>
+        #oneone > .item{
+            flex-grow: 1;
+            flex-shrink: 1;
+            /* flex-direction row : 가로
+                flex-direction column : 세로 */
+            flex-basis: 400px;
+        }
+    </style>
+    <h2>flex-grow : 1 , flex-shrink : 1</h2>
+    <div class="container" id="oneone">
+        <div class="item">10</div>
+        <div class="item">20</div>
+        <div class="item">30</div>
+    </div>
+</body>
+</html>

@@ -4,34 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>align-items</title>
+    <style>
+        .container{
+            background-color: lightblue;
+            width: 300px; height: 300px;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+        }
+        .item{
+            background-color: lightpink;
+            margin: 20px;
+        }
+    </style>
 </head>
 <body>
     <h2>stretch</h2>
-    <div class="container">
+    <div class="container" style="align-items: stretch;">
         <div class="item">10</div>
         <div class="item">20</div>
         <div class="item">30</div>
     </div>
     <h2>flex-start</h2>
-    <div class="container">
+    <div class="container" style="align-items: flex-start;">
         <div class="item">10</div>
         <div class="item">20</div>
         <div class="item">30</div>
     </div>
     <h2>flex-end</h2>
-    <div class="container">
+    <div class="container" style="align-items: flex-end;">
         <div class="item">10</div>
         <div class="item">20</div>
         <div class="item">30</div>
     </div>
+
     <h2>center</h2>
-    <div class="container">
+    <div class="container" style="align-items: center;">
         <div class="item">10</div>
         <div class="item">20</div>
         <div class="item">30</div>
     </div>
+
     <h2>baseline</h2>
-    <div class="container">
+    <div class="container" style="align-items: baseline;">
         <div class="item">10</div>
         <div class="item">20</div>
         <div class="item">30</div>
