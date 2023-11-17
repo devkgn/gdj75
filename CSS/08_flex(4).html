@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>justify-content</title>
+    <style>
+        .container{
+            background-color: lightblue;
+            width: 500px; height: 200px;
+            display: flex; flex-flow: row wrap;
+        }
+        .item{
+            background-color: lightpink;
+            margin: 10px; height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <h2>flex-start</h2>
+    <div class="container" style="justify-content: flex-start;">
+        <div class="item">10</div>
+        <div class="item">20</div>
+        <div class="item">30</div>
+    </div>
+    <h2>flex-end</h2>
+    <div class="container" style="justify-content: flex-end;">
+        <div class="item">10</div>
+        <div class="item">20</div>
+        <div class="item">30</div>
+    </div>
+    <h2>center</h2>
+    <div class="container" style="justify-content: center;">
+        <div class="item">10</div>
+        <div class="item">20</div>
+        <div class="item">30</div>
+    </div>
+    <h2>space-between</h2>
+    <div class="container" style="justify-content: space-between;">
+        <div class="item">10</div>
+        <div class="item">20</div>
+        <div class="item">30</div>
+    </div>
+    <h2>space-around</h2>
+    <div class="container" style="justify-content: space-around;">
+        <div class="item">10</div>
+        <div class="item">20</div>
+        <div class="item">30</div>
+    </div>
+    <h2>space-evenly</h2>
+    <div class="container" style="justify-content: space-evenly;">
+        <div class="item">10</div>
+        <div class="item">20</div>
+        <div class="item">30</div>
+    </div>
+</body>
+</html>
