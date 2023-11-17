@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포지셔닝</title>
+</head>
+<body>
+    <h1>position 속성</h1>
+    <h2>태그를 페이지에서 원하는 위치에 배치</h2>
+    <style>
+        .parent{
+            border: 1px solid blue;
+            width: 800px; height: 500px;
+            margin: 100px;
+        }
+        .absolute_child{
+            border: 2px dashed darkorange;
+            width: 200px; height: 200px;
+            position: absolute;
+            top: 40px; left: 50px;
+        }
+        .relative_child{
+            border: 2px solid green;
+            width: 80px; height: 200px;
+            position: relative;
+            top: 40px; left: 50px;
+        }
+        .absolute_relative_child{
+            border: 2px double purple;
+            width: 100px; height: 100px;
+            position: absolute;
+            top: 100px; left: 10px;
+        }
+        #fly{
+            position: fixed;
+            top: 200px; left: 500px;
+        }
+    </style>
+    <div class="parent">
+        <div class="absolute_child">
+            포지션이 absolute
+            <div class="absolute_relative_child">
+                부모의 포지션이 absolute 혹은 relative인 경우 
+                자식이 absolute
+            </div>
+        </div>
+        <div class="relative_child">
+            포지션이 relative
+        </div>
+    </div>
+    <img src="img/kong.jpg" width="200" height="200"
+    alt="콩나물무침" id="fly">
+    <h1>visiblity 속성</h1>
+    <p>
+        display:none; => 화면에 보이지도 않고, 공간도 차지하지 X
+    </p>
+    <p>
+        visibility:hidden; => 화면에 보이지 않지만, 공간은 차지O
+    </p>
+    <style>
+        #userId_validate{visibility: hidden;}
+    </style>
+    <div id="enrollPage">
+        <h2>회원가입</h2>
+        <form>
+            <input type="text" name="userId" id="userId" placeholder="아이디">
+            <span id="userId_validate">잘못된 아이디입니다.</span>
+        </form>
+    </div>
+    <script>
+        document.getElementById('userId').onkeyup = function(){
+            if(document.getElementById('userId').value == 'user01'){
+                document.getElementById('userId_validate').style.visibility = 'visible';
+            }
+        }
+    </script>
+    <style>
+        /* class가 zindex-container인 요소의 자손중에 div */
+        .zindex-container > div{width: 100px; height: 100px;}
+        .z1{
+            background-color: lime;
+            position: absolute; top: 10px; left: 10px;
+            z-index: 3;
+        }
+        .z2{
+            background-color: orangered;
+            position: absolute; top: 30px; left: 30px;
+            z-index: 2;
+        }
+        .z3{
+            background-color: lightgoldenrodyellow;
+            position: absolute; top: 50px; left: 50px;
+            z-index: 1;
+        }
+    </style>
+    <div class="zindex-container">
+        <div class="z1">첫째</div>
+        <div class="z2">둘째</div>
+        <div class="z3">셋째</div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
