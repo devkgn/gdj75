@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-direction</title>
+    <style>
+        .container{
+            background-color: lightblue;
+            width: 600px; height: 200px;
+            margin-bottom: 10px;
+            display: flex;
+        }
+        .item{
+            background-color: lightpink;
+            margin: 2%; text-align: center;
+            font-size: 2rem; color: #fff;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <h1>flex-direction</h1>
+    <p>
+        배치 방향을 설정<br>
+        1. row : 가로(default)<br>
+        2. row-reverse : 역방향 가로<br>
+        3. column : 세로 <br>
+        4. column-reverse : 역방향 세로
+    </p>
+    <h2>row</h2>
+    <div class="container" style="flex-direction: row;">
+        <div class="item">10</div>
+        <div class="item">20</div>
+        <div class="item">30</div>
+    </div>
+    <h2>row-reverse</h2>
+    <div class="container" style="flex-direction: row-reverse;">
+        <div class="item">10</div>
+        <div class="item">20</div>
+        <div class="item">30</div>
+    </div>
+    <h2>column</h2>
+    <div class="container" style="flex-direction: column;">
+        <div class="item">10</div>
+        <div class="item">20</div>
+        <div class="item">30</div>
+    </div>
+    <h2>column-reverse</h2>
+    <div class="container" style="flex-direction: column-reverse;">
+        <div class="item">10</div>
+        <div class="item">20</div>
+        <div class="item">30</div>
+    </div>
+</body>
+</html>

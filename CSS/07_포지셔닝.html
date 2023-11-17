@@ -86,7 +86,7 @@
         .z2{
             background-color: orangered;
             position: absolute; top: 30px; left: 30px;
-            z-index: 2;
+            z-index: -1;
         }
         .z3{
             background-color: lightgoldenrodyellow;
@@ -99,8 +99,41 @@
         <div class="z2">둘째</div>
         <div class="z3">셋째</div>
     </div>
-
-
+    <h1>float로 요소 배치</h1>
+    <style>
+        .float_container{
+            border: 1px solid gray; width: 600px; height: 400px;
+        }
+        .float_container > div{width: 100px; height: 100px;}
+        .left{
+            border: 2px dashed violet; float: left;
+        }
+        .right{
+            border: 4px double dodgerblue; float: right;
+        }
+        .clear_container > div{
+            float: left;
+        }
+        .clear_container{
+            clear: both;
+        }
+    </style>
+    <div class="float_container">
+        <div class="left">left</div>
+        <div class="left">두번째 left</div>
+        <div class="right">right</div>
+        <div class="right">두번째 right</div>
+    </div>
+    <div class="clear_container">
+        <div>빼빼로1</div>
+        <div>빼빼로2</div>
+        <div>빼빼로3</div>
+    </div>
+    <div class="clear_container">
+        <div>빼빼로4</div>
+        <div>빼빼로5</div>
+        <div>빼빼로6</div>
+    </div>
 
 
 
