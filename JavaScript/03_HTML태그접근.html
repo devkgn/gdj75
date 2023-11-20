@@ -75,6 +75,27 @@
         // 3. style 속성 값 바꾸기
         document.getElementById('valTarget').style.backgroundColor = 'gold';
     </script>
+    <div id="test1">
+        <p>Hello!</p>
+    </div>
+    <p id="test2">
+        Hello!!
+    </p>
+    <script>
+        // 1. innerHTML 태그 내용 가져오기
+        var test1 = document.getElementById('test1').innerHTML;
+        console.log(test1);
+        var test2 = document.getElementById('test2').innerHTML;
+        console.log(test2);
+        // 2. innerHTML 태그 내용 변경하기
+        document.getElementById('test1').innerHTML = '<h1>Change</h1>';
+        document.getElementById('test2').innerHTML = '안녕하세요~';
+        // 3. innerText 태그 내부 문자 가져오기
+        var test3 = document.getElementById('test2').innerText;
+        console.log(test3);
+        // 4. innerText 태그 내부 문자 변경하기
+        document.getElementById('test2').innerText = '반갑습니다';
+    </script>
 
 
 
