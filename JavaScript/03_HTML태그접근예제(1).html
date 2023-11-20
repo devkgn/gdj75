@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML태그접근_예제(1)</title>
+    <style>
+        div{
+            width: 100px; height: 100px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>문제1. 색상 선택후 변경 버튼을 클릭하면 색상이 변경되도록 만들어보세요.</h1>
+    <div id="first"></div>
+    <input type="color" id="color">
+    <button type="button" onclick="colorChange();">
+        변경
+    </button>
+    <script>
+        // 1. 색상을 변경
+        // 2. 사용자가 선택한 색상으로
+        function colorChange(){
+            document.getElementById('first').style.backgroundColor = 
+            document.getElementById('color').value;
+        }
+    </script>
+</body>
+</html>
