@@ -15,5 +15,71 @@
         test.style.color='crimson';
         test.innerHTML = '<h3>태그 생성</h3>';
     </script>
+    <h1>document.getElementsByClassName('class명')</h1>
+    <p class="a">p1</p>
+    <span class="b a">span1</span>
+    <p class="c">p2</p>
+    <div class="a b c">div1</div>
+    <script>
+        var el = document.getElementsByClassName('a');
+        console.log(el);
+        console.log(el[0]);
+        el[0].innerHTML = 'p1아 바껴라!';
+        el[1].style.color = 'magenta';
+    </script>
+    <h1>document.getElementsByTagName('태그명')</h1>
+    <ul>
+        <li>html</li>
+        <li>css</li>
+        <li>javascript</li>
+    </ul>
+    <script>
+        var tagEl = document.getElementsByTagName('li');
+        console.log(tagEl);
+        tagEl[1].style.color = 'blue';
+    </script>
+    <h1>document.getElementsByName('name속성값')</h1>
+    <input type="checkbox" name="food" value="0">짜장면<br>
+    <input type="checkbox" name="food" value="1">짬뽕<br>
+    <input type="checkbox" name="food" value="2">탕수육
+    <script>
+        var nameEl = document.getElementsByName('food');
+        console.log(nameEl[0].checked);
+        nameEl[2].checked = true;
+    </script>
+    <h1>document.querySelector('선택자')</h1>
+    <script>
+        var idSelect = document.querySelector('#idTarget');
+        console.log(idSelect);
+        // var classSelect = document.querySelector('.a');
+        // console.log(classSelect);
+        var classSelects = document.querySelectorAll('.a');
+        console.log(classSelects);
+        // for in 문
+        for(var item of classSelects){
+            //item.innerHTML = '바꿔주고 싶다.';
+            console.log(item.innerHTML);
+            // 조건문
+            if(item.innerHTML === 'span1'){
+                console.log('jackpot!');
+            }
+        }   
+    </script>
+    <input type="text" id="valTarget" value="33">
+    <script>
+        // 1. value 속성 값 가져오기
+        var valEl = document.getElementById('valTarget').value;
+        console.log(valEl);
+        // 2. value 속성 값 바꾸기
+        document.getElementById('valTarget').value = '변경값';
+        // 3. style 속성 값 바꾸기
+        document.getElementById('valTarget').style.backgroundColor = 'gold';
+    </script>
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
