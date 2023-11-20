@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개요</title>
+</head>
+<body>
+    <h1>인라인 방식</h1>
+    <!-- 내장 메소드 : js가 이미 가지고 있는 기능 -->
+    <button onclick="alert('alert는 알람');">내장 메소드 호출</button>
+    <!-- 사용자 정의 함수 : 개발자가 만든 기능 -->
+    <button onclick="inlineType();">개발자가 선언한 사용자 정의 함수</button>
+    <script>
+        // Hello JavaScript라는 문구를 alert창에 출력하는 함수
+        function inlineType(){
+            alert('Hello JavaScript');
+        }
+    </script>
+    <h1>인터널 방식</h1>
+    <button id="internal_btn">인터널 버튼</button>
+    <script>
+        document.getElementById('internal_btn').onclick = function(){
+            alert('Hello JS!!');
+        }
+    </script>
+</body>
+</html>
