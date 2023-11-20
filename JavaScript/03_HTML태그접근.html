@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 태그 접근</title>
+</head>
+<body>
+    <h1>document.getElementById('id속성값')</h1>
+    <div id="idTarget">
+        id기준
+    </div>
+    <script>
+        var test = document.getElementById('idTarget');
+        test.style.color='crimson';
+        test.innerHTML = '<h3>태그 생성</h3>';
+    </script>
+</body>
+</html>

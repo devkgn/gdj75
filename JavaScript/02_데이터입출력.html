@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터 입출력</title>
+</head>
+<body>
+    <h1>데이터 입출력</h1>
+    <button onclick="printConsole();">콘솔로그</button>
+    <button onclick="printAlert();">얼럿</button>
+    <button onclick="printPrompt();">프롬프트</button>
+    <button onclick="printConfirm();">컨펌</button>
+    <button onclick="printWrite();">도큐먼트라이트</button>
+    <script>
+        function printConsole(){
+            console.log('Hello World!');
+        }
+        function printAlert(){
+            alert('Hello World!!!!');
+        }
+        function printPrompt(){
+            console.log(prompt('이름을 입력하세요~',''));
+        }
+        function printConfirm(){
+            console.log(confirm('당신은 로봇입니까?')); 
+        }
+        function printWrite(){
+            document.write('Lorem ipsum dolor sit amet');
+            document.write('<h1>제목1</h1>');
+        }
+        console.log('김가남');
+        //alert('2023년 11월 20일 월요일');
+        console.log(prompt('여기는 어디인가요?'));
+        console.log(confirm('오늘은 일요일인가요?'));
+        document.write('<h1>제목은 역시 h1</h1>');
+    </script>
+</body>
+</html>
