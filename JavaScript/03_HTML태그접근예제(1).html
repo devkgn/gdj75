@@ -26,5 +26,40 @@
             document.getElementById('color').value;
         }
     </script>
+    <h1>문제2. 버튼에 따른 크기 조절이 가능하도록 만들어 보시오.</h1>
+    <div id="second"></div>
+    <button onclick="changeSize(50);">
+        50x50
+    </button>
+    <button onclick="changeSize(100);">
+        100X100
+    </button>
+    <button onclick="changeSize(200);">
+        200X200
+    </button>
+    <script>
+        // 매개변수 사용O
+        function changeSize(size){
+            
+            document.getElementById('second').style.width = size+'px';
+            document.getElementById('second').style.height = size+'px';
+        }
+        // 매개변수 사용X
+        function changeSize50(){
+            // 1. div의 width를 50px
+            // 2. div의 height를 50px
+            document.getElementById('second').style.width ='50px';
+            document.getElementById('second').style.height = 50+'px';
+        }
+        function changeSize100(){
+            document.getElementById('second').style.width = '100px';
+            document.getElementById('second').style.height = '100px';
+        }
+        function changeSize200(){
+            var el = document.getElementById('second');
+            el.style.width = '200px';
+            el.style.height = '200px';
+        }
+    </script>
 </body>
 </html>
