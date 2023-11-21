@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자 예제(1)</title>
+</head>
+<body>
+    <h1>간이 계산기 만들기</h1>
+    <label for="num_1">첫번째 값 : </label>
+    <input type="number" id="num_1">
+    <br><br>
+    <label for="num_2">두번째 값 : </label>
+    <input type="number" id="num_2">
+    <br><br>
+    <input type="button" value="+" onclick="numPlus();">
+    <input type="button" value="-" onclick="numMinus();">
+    <input type="button" value="x" onclick="numMultiple();">
+    <input type="button" value="/" onclick="numDivide();">
+    <input type="button" value="%" onclick="numLeft();">
+    <br><br>
+    <span>계산 결과 : </span>
+    <span id="resultSpan"></span>
+    <hr>
+    <script>
+        function numPlus(){
+           let num1 = document.getElementById('num_1').value;
+           num1 = Number(num1);
+           let num2 = document.getElementById('num_2').value;
+           num2 = Number(num2);
+           document.getElementById('resultSpan').innerHTML = num1+num2;
+        }
+        function numMinus(){
+            let num1 = Number(document.getElementById('num_1').value);
+            let num2 = Number(document.getElementById('num_2').value);
+            document.getElementById('resultSpan').innerHTML = num1-num2;
+        }
+        function numMultiple(){
+            let num1 = Number(document.getElementById('num_1').value);
+            let num2 = Number(document.getElementById('num_2').value);
+            document.getElementById('resultSpan').innerHTML = num1 * num2;
+        }
+        function numDivide(){
+            let num1 = Number(document.getElementById('num_1').value);
+            let num2 = Number(document.getElementById('num_2').value);
+            document.getElementById('resultSpan').innerHTML = num1 / num2;
+        }
+        function numLeft(){
+            let num1 = Number(document.getElementById('num_1').value);
+            let num2 = Number(document.getElementById('num_2').value);
+            document.getElementById('resultSpan').innerHTML = num1 % num2;
+        }
+    </script>
+</body>
+</html>
