@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자 최종 복습문제</title>
+    <style>
+        #resultDiv{
+            background-color: cornsilk;
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        여러분 연산자 배운다고 고생많았어요!<br>
+        복습도 할겸 종합 문제를 풀어봅시다~<br>
+        문제는 제가 드린 코드에 빈 script 태그를 채우는 거에요!!
+    </p>
+    <h2>1. 단항 연산자</h2>
+    <h3>
+        버튼을 클릭하면 사용자가 입력한 숫자의 부호를
+        반대로 변경하여 alert창에 띄우세요.
+    </h3>
+    <input type="number" id="num1" placeholder="숫자를 입력하세요."/>
+    <input type="button" value="1번문제" onclick="addMinus();"/>
+    <script>
+        // 이곳에 코드를 추가하세요.
+    </script>
+    <h2>2. 논리 부정 연산자</h2>
+    <h3>
+        참 radio를 클릭하면 false, 거짓 radio를 클릭하면 true값이 
+        alert창에 출력되도록 코드를 추가하세요.
+    </h3>
+	<p>Hint. changeBool 함수의 매개변수로 논리형 변수를 사용하세요.</p>
+    <input type="radio" name="bool" id="yes" onclick="">
+    <label for="yes">참</label>
+    <input type="radio" name="bool" id="no" onclick="">
+    <label for="no">거짓</label>
+    <script>
+        function changeBool(bool){
+            // input type radio의 onclick과 이곳에 코드를 추가하세요.
+        }
+    </script>
+    <h2>3. 증감연산자</h2>
+    <h3>
+        num1은 20이고, num2는 0일때 
+        버튼을 클릭했을때 나오는 num1과 num2의 값을 보고
+        다음중 어떤 연산이 이루어졌는지 선택하세요.
+    </h3>
+	<p>
+		돌려돌려돌림판~ 버튼을 클릭하면 연산처리 후 결과값이 노란창에 출력됩니다.<br>
+		이를 보고 전위 연산인지 후위 연산인지 판단하시어<br>
+		아래 두개의 식 중에 하나를 선택하면 정답여부를 알 수 있습니다.
+	</p>
+    <input type="button" value="돌려돌려돌림판~" onclick="showAnswer();"/>
+    <input type="button" value="다시풀기" onclick="resetAnswer();"/>
+    <div id="resultDiv"></div>    
+    <input type="radio" name="answer" value="0" onchange="checkAnswer(this);"/>
+    <label>num2 = ++num1</label>
+    <input type="radio" name="answer" value="1" onchange="checkAnswer(this);"/>
+    <label>num2 = num1++</label>
+    <script>
+        let result = 0; 
+        function resetAnswer(){
+            result = 0;
+            document.querySelector('#resultDiv').innerHTML = '';
+            let obj = document.querySelectorAll('input[name=answer]');
+            for(let i = 0 ; i < obj.length ; i++){
+                obj[i].checked = false;
+            }
+        }
+        function showAnswer(){
+            let resultDiv = document.getElementById('resultDiv');
+            resultDiv.innerHTML = '';
+            let num1 = 20;
+            let num2 = 0;
+            let ranNum = Math.floor(Math.random()*2);
+            if(ranNum == 0){
+                num2 = ++num1;
+            } else if(ranNum==1){
+                num2 = num1++;
+            }
+            resultDiv.innerHTML += 'num1 : '+num1+'<br>';
+            resultDiv.innerHTML += 'num2 : '+num2;
+            result = ranNum;
+        }
+        function checkAnswer(element){
+            let answer = element.value;
+            if(result == answer){
+                alert('잘했어요!!');
+            } else{
+                alert('다시한번 생각해볼까요?');
+            }
+        }
+    </script>
+    <h2>4. 복합대입연산자</h2>
+    <h3>버튼을 클릭하면 textarea안의 숫자에서 1만큼 빼기해서 textarea에 출력하세요.</h3>
+	<p>Hint. 100을 10을 0을 하나 빼는게 아니라 100을 99로 1만큼 음수 연산하는 거에요~</p>
+    <textarea cols="50" rows="1" id="textLong">1000000000</textarea>
+    <input type="button" value="하나씩 빼기" onclick="minusCharacter();">
+    <script>
+        function minusCharacter(){
+            // 이곳에 코드를 추가하세요.
+        }
+    </script>
+</body>
+</html>
