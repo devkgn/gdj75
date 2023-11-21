@@ -68,5 +68,61 @@
         console.log(c);
         console.log(d);
     </script>
+    <p>+버튼 클릭시에 1 증가, -버튼 클릭시에 1 감소</p>
+    <h1 id="count">0</h1>
+    <button type="button" onclick="increment();">+</button>
+    <button type="button" onclick="decrement();">-</button>
+    <script>
+        // + 더하기 버튼 클릭시 기능 함수
+        function increment(){
+            // h1의 현재 내용 가져오기
+            // 증가(증감연산자)
+            let ori = document.getElementById('count').innerText;
+            document.getElementById('count').innerHTML = ++ori;
+        }
+        // - 빼기 버튼 클릭시 기능 함수
+        function decrement(){
+            // h1의 현재 내용 가져오기
+            // 감소(증감연산자)
+            let ori = document.querySelector('#count').innerHTML;
+            document.getElementById('count').innerText = --ori;
+        }
+    </script>
+    <h1>복합 대입 연산자</h1>
+    <script>
+        let f = 10;
+        f += 10;
+        console.log(f);
+        f -= 10;
+        console.log(f);
+        f *= 10;
+        console.log(f);
+        f /= 10;
+        console.log(f);
+        // 나머지
+        f %= 10;
+        console.log(f);
+        let g = 33;
+        g %= 10;
+        console.log(g);   
+    </script>
+    <h1>산술 연산자</h1>
+    <script>
+        let h = 10, i = 20, j = 0;
+        j = h/i;
+        console.log(j);
+        j = 0;
+        j = h%i;
+        console.log(j);
+    </script>
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
