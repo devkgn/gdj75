@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자</title>
+</head>
+<body>
+    <h1>부호 연산자</h1>
+    <script>
+        let num = 100;
+        console.log(+num);
+        console.log(-num);
+        console.log(num);
+        // 부호 연산자를 사용하여 실제 값을 변경하기 위해서는
+        // 대입 연산자 사용이 필요하다. 
+        num = -num;
+        console.log(num);
+    </script>
+    <p>부호 연산자를 사용하시되 대입 연산자를 통해서 변수 재할당을 해주세요.</p>
+    <input type="text" id="push_input">
+    <input type="button" id="push_btn" value="입력" onclick="alertNum();">
+    <script>
+        function alertNum(){
+            //console.log('connection test');
+            let num = document.getElementById('push_input').value;
+            num = -num;
+            alert(num);
+        }
+    </script>
+    <h1>논리 부정 연산자</h1>
+    <script>
+        let yes = true;
+        yes = !yes;
+        console.log(yes);
+    </script>
+    <h1>증감연산자</h1>
+    <p>전위 연산자, 후위 연산자</p>
+    <script>
+        let a = 2 , b = 0;
+        // let a = 2;
+        // let b = 0;
+        console.log(a);
+        console.log(b);
+        // 전위 연산자
+        b = ++a;
+        console.log(a);
+        console.log(b);
+        // 초기화
+        a = 2, b = 0;
+        // 후위 연산자
+        b = a++;
+        console.log(a);
+        console.log(b);
+    </script>
+</body>
+</html>
