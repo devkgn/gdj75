@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수예제(1)</title>
+</head>
+<body>
+    <h1>예제1</h1>
+    <div id="practice1">
+        <label for="first">첫번째 수 : </label>
+        <input type="number" id="first"/>
+        <br>
+        <label for="second">두번째 수 : </label>
+        <input type="number" id="second">
+        <button type="button" onclick="cal();">
+            더하기
+        </button>
+    </div>
+    <script>
+        // 1. 기능을 수행할 함수
+        // 2. 클릭 이벤트를 수행할 요소에 onclick 속성 추가
+        // 3. onclick 속성의 값으로 함수 호출
+        // 4. 잘 연결되었는지 확인
+        function cal(){
+            // console.log('======connection test======');
+            let a = document.getElementById('first').value;
+            let b = document.getElementById('second').value;
+            //console.log(typeof(a));
+            // 5. 문자를 숫자로 형변환
+            a = Number(a);
+            b = parseInt(b);
+            //console.log(typeof(a));
+            let c = a+b;
+            alert('첫번째 수 : '+a+"\n두번째 수 : "+b+'\n두 수의 합 : '+c);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML태그접근예제(2)</title>
+    <style>
+        #printDiv{
+            border: 1px solid lavender;
+            background-color: cornsilk;
+            width: 400px;
+            height: 180px;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML 태그에 접근 테스트</h1>
+    <p>
+        단, 구매자는 태그 이름으로 접근, -> getElementsByTagName
+        상품명은 아이디로 접근, -> getElementById
+        구매가격은 name값으로 접근할 것 -> getElementsByName
+    </p>
+    <label for="name">구매자 : </label>
+    <input type="text" id="name" placeholder="구매자의 이름을 입력하세요">
+    <br><br>
+    <label for="product">상품명 : </label>
+    <input type="text" id="product" placeholder="구매 상품명을 입력하세요">
+    <br><br>
+    <label for="price">가격 : </label>
+    <input type="text" name="price" id="price" placeholder="구매 가격을 입력하세요">
+    <br><br>
+    <input type="button" value="입력값 출력하기" onclick="inputPrint();">
+    <div id="printDiv"></div>
+    <script>
+        // 1. 기능을 수행하는 함수 생성
+        // 2. 클릭 이벤트 수행할 요소에 onclick 속성 추가
+        // 3. 속성의 값으로 함수를 연결
+        // 4. 함수 기능이 실제 클릭 이벤트 발생시 동작하는지 확인(console.log사용)
+        function inputPrint(){
+            // 5. 구매자 요소의 value 가져오기
+            let a = document.getElementsByTagName('input')[0].value;
+            // 6. 5번에서 가져온 value를 div에 출력
+            // 7. + 연산 사용해서 string 합치기
+            //document.getElementById('printDiv').innerHTML = '구매자 : '+a;
+            // 8. 상품명 요소의 value를 가져오기
+            let b = document.getElementById('product').value;
+            // 9. 8번에서 가져온 value를 div에 출력
+            // 10. 구매자 value와 상품명 value 합쳐주기(구매자 innerHTML 주석)
+            // document.getElementById('printDiv').innerHTML = 
+            //     '구매자 : '+a+'<br>상품명 : '+b+'<br>가격 : '+c;
+            // 11. 가격의 value 가져오기
+            // 12. innerHTML 코드 가장 밑으로 내리기
+            let c = document.getElementsByName('price')[0].value;
+            document.getElementById('printDiv').innerHTML = 
+                '구매자 : '+a+'<br>상품명 : '+b+'<br>가격 : '+c;
+        }
+    </script>
+</body>
+</html>
