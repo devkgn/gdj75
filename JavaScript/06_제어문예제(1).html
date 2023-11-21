@@ -75,5 +75,31 @@
             alert(season);
         }
     </script>
+    <h3>예제3</h3>
+    <select id="menu" onchange="menuChange();">
+        <option value="1">짜장</option>
+        <option value="2">피자</option>
+        <option value="3">비빔밥</option>
+    </select>
+    <script>
+        function menuChange(){
+            // 사용자가 선택한 value를 기준으로 메뉴명, 가격 alert
+            const menu = document.getElementById('menu').value;
+            let text;
+            switch(menu){
+                case '1':
+                    text = '짜장면은 7000원';
+                break;
+                case '2':
+                    text = '짬뽕 9000원';
+                break;
+                case '3':
+                    text = '비빔밥 6000원';
+                break;
+            }
+            alert(text);
+        }
+    </script>
+    <h3>예제4</h3>
 </body>
 </html>
