@@ -44,5 +44,20 @@
             break;
         }
     </script>
+    <h1>삼항 연산자</h1>
+    <p>조건식 ? true일 경우 수행할 식 : false일 경우 수행할 식;</p>
+    <label for="user_id">이름</label>
+    <input type="text" id="user_id">
+    <button onclick="checkId();">확인</button>
+    <script>
+        //let result_1 = a > b ? ++a : --b;
+        function checkId(){
+            let userId = document.getElementById('user_id').value;
+            userId = userId === ''? '허용되지않는 값' : userId;
+            console.log(userId);
+            // 숫자를 입력했는지, 문자를 입력했는지
+            userId = userId === ''? 'X' : (typeof userId === 'string' ? userId : 'X');
+        }
+    </script>
 </body>
 </html>

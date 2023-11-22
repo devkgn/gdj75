@@ -100,6 +100,78 @@
             alert(text);
         }
     </script>
+    <style>
+        img{
+            border-radius: 100px;
+        }
+    </style>
     <h3>예제4</h3>
+    <p>캐릭터 이름을 선택하면 해당하는 캐릭터 이미지가 화면에 출력</p>
+    <select id="chooseCharater" onchange="changeCharacter();">
+        <option value="1">공룡</option>
+        <option value="2">강아지</option>
+        <option value="3">토끼</option>
+    </select>
+    <img id="characterImg" src="../img/d.png" width="200" height="200">
+    <script>
+        function changeCharacter(){
+            let charac = document.getElementById('chooseCharater');
+            let characImg = document.getElementById('characterImg');
+            // switch(charac.value){
+            //     case '1' : 
+            //          characImg.src = '../img/d.png';
+            //     break;
+            //     case '2' : 
+            //          characImg.src = '../img/e.jpg';
+            //     break;
+            //     case '3' : 
+            //         characImg.src = '../img/f.png';
+            //     break;
+            // }
+            if(charac.value === '1'){
+                characImg.src = '../img/d.png';
+            } else if(charac.value === '2'){
+                characImg.src = '../img/e.jpg';
+            } else if(charac.value === '3'){
+                characImg.src = '../img/f.png';
+            }
+        }
+    </script>
+    <h3>예제5</h3>
+    <input type="number" id="coffee_price">
+    <button onclick="buyCoffee();">결제</button>
+    <script>
+        function buyCoffee(){
+            let val = Number(document.getElementById('coffee_price').value);
+            // alert창에 출력할 문구를 정해야합니다. 
+            let change = val- 2500;
+            let text;
+            //삼항연산자
+            text = val >= 2500 ? (val === 2500 ? '아메리카노O, 거스름돈x' : '아메O,'+change) : '아메리카노X';
+            //if문
+            if(val >= 2500){
+                text = '아메리카노O';
+                if(val === 2500){
+                    text += '거스름돈X';
+                } else{
+                    text += '거스름돈 : '+change;
+                }
+            } else{
+                text ='아메리카노X';
+            }
+            alert(text);
+        }
+        // 1. 바꾸고 싶다
+        // let el = document.getElementById('coffe_price');
+        // el.value = '바꾸고싶은 값';
+        // 2. 가져오고 싶다
+        // let a = document.getElementById('coffee_price').value;  
+
+        // value, innerHTML, innerText의 차이
+        // value = input, selct(form 안에 요소)
+        // innerHTML = 요소안에 모든 내용(태그까지 포함)
+        // innerText = 요소안에 모든 텍스트노드
+        // ex. textarea -> value, innerHTML, innerText
+    </script>
 </body>
 </html>
