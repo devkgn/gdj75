@@ -6,6 +6,26 @@
     <title>변수예제(3)</title>
 </head>
 <body>
-    
+    <h3>예제3</h3>
+    <label for="width_num">가로 : </label>
+    <input type="number" id="width_num"><br>
+    <label for="height_num">세로 : </label>
+    <input type="number" id="height_num">
+    <button onclick="changeSize();">변경</button><br><br>
+    <img id="human_img" src="../img/human.png" alt="사람" width="100" height="100">
+    <script>
+        function changeSize(){
+            let el = document.getElementById('human_img');
+            let user_width = Number(document.getElementById('width_num').value);
+            let user_height = Number(document.getElementById('height_num').value);
+            // console.log(el);
+            // console.log(el.width, typeof(el.width));
+            // console.log(el.height, typeof(el.height));
+            // console.log(user_width, typeof(user_width));
+            // console.log(user_height, typeof(user_height));
+            el.width = el.width + user_width;
+            el.height = el.height + user_height;
+        }
+    </script>
 </body>
 </html>

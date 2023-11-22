@@ -26,7 +26,10 @@
     <input type="number" id="num1" placeholder="숫자를 입력하세요."/>
     <input type="button" value="1번문제" onclick="addMinus();"/>
     <script>
-        // 이곳에 코드를 추가하세요.
+        function addMinus(){
+            let num = document.getElementById('num1').value;
+            alert(-num);
+        }
     </script>
     <h2>2. 논리 부정 연산자</h2>
     <h3>
@@ -34,13 +37,30 @@
         alert창에 출력되도록 코드를 추가하세요.
     </h3>
 	<p>Hint. changeBool 함수의 매개변수로 논리형 변수를 사용하세요.</p>
-    <input type="radio" name="bool" id="yes" onclick="">
+    <input type="radio" name="bool" id="yes" onclick="changeBool(true);">
     <label for="yes">참</label>
-    <input type="radio" name="bool" id="no" onclick="">
+    <input type="radio" name="bool" id="no" onclick="changeBool(false);">
     <label for="no">거짓</label>
     <script>
         function changeBool(bool){
             // input type radio의 onclick과 이곳에 코드를 추가하세요.
+            // 1. boolean 자료형의 매개변수 전달
+            alert(!bool);
+            // 2. boolean 이외의 자료형(문자, 숫자) 매개변수 전달(if문)
+            // if(bool === 0){
+            //     alert(false);
+            // } else{
+            //     alert(true);
+            // }
+            // 3. boolean 이외의 자료형(문자, 숫자) 매개변수 전달(swich문)
+            // switch(bool){
+            //     case 0 :
+            //         alert(false);
+            //     break;
+            //     case 1 : 
+            //         alert(true);
+            //     break;
+            // }
         }
     </script>
     <h2>3. 증감연산자</h2>
@@ -103,6 +123,14 @@
     <script>
         function minusCharacter(){
             // 이곳에 코드를 추가하세요.
+            let el = document.getElementById('textLong');
+            let num = Number(el.innerHTML);
+            // typeof 사용방법 2가지
+            // 1. typeof '1000'
+            // 2. typeof('1000')
+            console.log(num, typeof num);
+            num -= 1;
+            el.innerHTML = num;
         }
     </script>
 </body>
