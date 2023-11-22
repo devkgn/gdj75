@@ -104,5 +104,25 @@
             }
         }
     </script>
+    <h1>while문</h1>
+    <button onclick="whileFunc();">동작</button>
+    <script>
+        function whileFunc(){
+            let b = 10;
+            while(b >= 0){
+                console.log(b);
+                // if(b % 2 === 0){
+                //     console.log('짝수');
+                // } else{
+                //     console.log('홀수');
+                // }
+                b = b-1;
+                if(b === 5){
+                    console.log('그만하자.');
+                    break;
+                }
+            }
+        }
+    </script>
 </body>
 </html>
