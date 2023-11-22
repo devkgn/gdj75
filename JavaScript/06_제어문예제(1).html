@@ -176,7 +176,6 @@
     <h3>예제6</h3>
     <button onclick="printTitle();">버튼</button>
     <div id="resultDiv">
-
     </div>
     <script>
         function printTitle(){
@@ -193,6 +192,44 @@
             }
         }
     </script>
+    <h3>예제7</h3>
+    <p>팝콘 1개 + 음료수 3개 포함된 콤보세트 구매</p>
+    <label for="combo_num">콤보세트 개수 : </label>
+    <input type="number" id="combo_num"><br>
+    <button onclick="buyComboSet();">구입하기</button>
+    <button onclick="cancelComboSet();">초기화</button>
+    <div id="comboDiv">
 
+    </div>
+    <script>
+        function buyComboSet(){
+            // 1. 사용자가 입력한 콤보세트 개수 값 가져오기
+            let comboNum = document.getElementById('combo_num').value;
+            // 2. 세트 개수 만큼 회전
+            for(let i = 1 ; i <= comboNum ; i++){
+                // 3. 팝콘 1개 출력
+                document.getElementById('comboDiv').innerHTML +='<img src="../img/popcorn.png" alt="팝콘" width="50">';
+                // 4. 음료수 3개 출력
+                for(let j = 1 ; j <= 3 ; j++){
+                    document.getElementById('comboDiv').innerHTML +='<img src="../img/drinks.png" alt="음료" width="50">';
+                    // 7. 세트 하나에 팝콘1개 , 음료 1개를 출력
+                    // break;
+                }
+                // 5.줄바꿈
+                document.getElementById('comboDiv').innerHTML +='<br>';
+               // 6. 세트를 무조건 하나만 출력
+               // break;
+            }
+        }
+        function cancelComboSet(){
+            document.getElementById('comboDiv').innerHTML = '';
+            document.getElementById('combo_num').value = '';
+        }
+    </script>
+
+
+
+    <br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

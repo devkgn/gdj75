@@ -80,5 +80,29 @@
             }
         }
     </script>
+    <h1>중첩 반복문 -> break 사용</h1>
+    <button onclick="breakFnc();">기능 동작</button>
+    <script>
+        function breakFnc(){
+            // 1. 두번째 for문 안에 break
+            // for(let i = 1 ; i <= 3 ; i++){
+            //     console.log(1);
+            //     for(let j = 1; j <=2 ; j++){
+            //         console.log(2);
+            //         break;
+            //     }
+            //     console.log(3);
+            // }
+            // 2. 첫번째 for문 안에 break
+            for(let i = 1 ; i <=3 ; i++){
+                console.log(1);
+                for(let j = 1; j <=2 ; j++){
+                    console.log(2);
+                }
+                console.log(3);
+                break;
+            }
+        }
+    </script>
 </body>
 </html>
