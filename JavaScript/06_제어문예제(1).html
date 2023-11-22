@@ -225,8 +225,9 @@
             document.getElementById('comboDiv').innerHTML = '';
             document.getElementById('combo_num').value = '';
         }
-    </script>    
-    <h3>예제8</h3>
+    </script>   
+     <!--예제8은 예제7에 break를 추가하는 것으로 대체하였습니다.  -->
+    <h3>예제9</h3>
     <button onclick="addBack();">배경추가</button>
     <script>
         function addBack(){
@@ -259,6 +260,47 @@
             // }
         }
     </script>
+    <h3>예제10</h3>
+    <p>
+        사용자로부터 숫자를 입력받고, <br>
+        해당 숫자를 시작으로 값이 10이상이 될때까지 <br>
+        하나씩 커지면서 출력하는 프린트 만들기<br>
+        (최초값이 10보다 크더라도 반드시 출력하세요.)
+    </p>
+    <input type="number" id="user_num">
+    <button onclick="growPrint();">출력하기</button>
+    <button onclick="clearPrint();">초기화</button>
+    <div id="num_print_div">
+
+    </div>
+    <script>
+        function growPrint(){
+            let ele = document.getElementById('num_print_div');
+            ele.innerHTML = '';
+            let userNum = Number(document.getElementById('user_num').value);
+            do{
+                ele.innerHTML += '<p>'+userNum+'</p>';
+                userNum++;
+            }while(userNum <= 10);
+        }
+        function clearPrint(){
+            document.getElementById('num_print_div').innerHTML = '';
+            document.getElementById('user_num').value = '';
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
