@@ -135,5 +135,28 @@
             }while(0 < count && count < 10);
         }
     </script>
+    <h1>continue</h1>
+    <p>전체 반복 중에서 특정 조건을 만족하는 경우 제외하고자 할때</p>
+    <button onclick="continueFunc();">동작</button>
+    <script>
+        function continueFunc(){
+            // for문에서 continue를 사용한 경우
+            // continue -> 증감식으로 이동
+            for(let i = 1 ; i <= 10 ; i++){
+                // if(i % 2 !== 0){
+                //     console.log(i+' : 출력');
+                // }
+                if(i % 2 === 0) continue;
+                console.log(i+' : 출력');
+            }
+            // while문에서 continue를 사용한 경우
+            let j = 0;
+            while(j < 10){
+                j++;
+                if(j % 2 === 0) continue;
+                console.log(j +' : 출력(2)');
+            }
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제어문예제(2)</title>
+</head>
+<body>
+    <h3>예제 2-1</h3>
+    <h4>간이 계산기 만들기</h4>
+    <label for="num_1">첫번째 값 : </label>
+    <input type="number" id="num_1">
+    <br><br>
+    <label for="num_2">두번째 값 : </label>
+    <input type="number" id="num_2">
+    <br><br>
+    <input type="button" value="+" onclick="numCal(0);">
+    <input type="button" value="-" onclick="numCal(1);">
+    <input type="button" value="x" onclick="numCal(2);">
+    <input type="button" value="/" onclick="numCal(3);">
+    <input type="button" value="%" onclick="numCal(4);">
+    <br><br>
+    <span>계산 결과 : </span>
+    <span id="resultSpan"></span>
+    <hr>
+    <script>
+        function numCal(val){
+            let num1 = Number(document.getElementById('num_1').value);
+            let num2 = Number(document.getElementById('num_2').value);
+            let result;
+            switch(val){
+                case 0 : result = num1+num2; break;
+                case 1 : result = num1-num2; break;
+                case 2 : result = num1*num2; break;
+                case 3 : result = num1 / num2; break;
+                case 4 : result = num1 % num2; break;
+            }
+            document.getElementById('resultSpan').innerHTML = result;
+        }
+    </script>
+</body>
+</html>
