@@ -59,5 +59,26 @@
             userId = userId === ''? 'X' : (typeof userId === 'string' ? userId : 'X');
         }
     </script>
+    <h1>중첩 반복문</h1>
+    <button onclick="doubleFnc();">동작</button>
+    <script>
+        function doubleFnc(){
+            // for(let i = 1 ; i <=3 ; i++){
+            //     console.log(1);
+            //     for(let j = 1 ; j <=2 ; j++){
+            //         console.log(2);
+            //     }
+            //     console.log(3);
+            // }
+            // 총 2개의 교실, 하나의 교실에 3명의 학생
+            for(let i = 1 ; i <=2 ; i++){
+                console.log('=== 교실 :'+i+'번 입장 ===');
+                for(let j = 1 ; j <=3 ; j++){
+                    console.log('학생 :'+j+'번');
+                }
+                console.log('=== 교실 :'+i+'번 퇴장 ===');
+            }
+        }
+    </script>
 </body>
 </html>
