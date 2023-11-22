@@ -226,6 +226,40 @@
             document.getElementById('combo_num').value = '';
         }
     </script>    
+    <h3>예제8</h3>
+    <button onclick="addBack();">배경추가</button>
+    <script>
+        function addBack(){
+            // 짝수번째에 있는 h3는 lightpink
+            // 홀수번째에 있는 h3는 lightskyblue로 배경색이 변경
+            const h3List = document.getElementsByTagName('h3');
+            // for(let i = 0 ; i < h3List.length ; i++){
+            //     // 3개 -> 0 , 1 , 2
+            //     if(i % 2 === 0){
+            //         // 등번호가 짝수라면 -> 홀수번째에 있는 h3 
+            //         h3List[i].style.backgroundColor = 'lightskyblue';
+            //     }else{
+            //         h3List[i].style.backgroundColor = 'lightpink';
+            //     }
+            // }
+            let i = 0;
+            while(i < h3List.length){
+                if(i % 2 === 0){
+                    // 등번호가 짝수라면 -> 홀수번째에 있는 h3 
+                    h3List[i].style.backgroundColor = 'lightskyblue';
+                }else{
+                    h3List[i].style.backgroundColor = 'lightpink';
+                }          
+                i++;
+            }
+
+            // 의도적인 무한루프
+            // while(true){
+
+            // }
+        }
+    </script>
+
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
