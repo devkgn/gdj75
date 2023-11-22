@@ -173,5 +173,25 @@
         // innerText = 요소안에 모든 텍스트노드
         // ex. textarea -> value, innerHTML, innerText
     </script>
+    <h3>예제6</h3>
+    <button onclick="printTitle();">버튼</button>
+    <div id="resultDiv">
+
+    </div>
+    <script>
+        function printTitle(){
+            // 총 10회 div에 h1요소를 추가
+            // 0 1 2 3 4 5 6 7 8 9
+            // 1 2 3 4 5 6 7 8 9 10
+            // 10 9 8 7 6 5 4 3 2 1 
+            for(let i = 10 ; i >=1 ; i--){
+            // for(let i = 1 ; i < 11 ; i++){ 
+            // for(let i = 1 ; i <= 10 ; i++){ 
+            // for(let i = 0 ; i < 10 ; i++){
+            // for(let i = 0 ; i <= 9 ; i++){
+                document.getElementById('resultDiv').innerHTML += '<h1>안녕하세요</h1>';
+            }
+        }
+    </script>
 </body>
 </html>
