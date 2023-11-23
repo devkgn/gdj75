@@ -18,5 +18,24 @@
         }
         sayHello('Hi');
     </script>
+    <h3>예제2</h3>
+    <script>
+        // 1. 선언적 함수
+        function calculator1(a,b){
+            return a*b;
+        }
+        let result1 = calculator1(2,3);
+        console.log(calculator1(4,5));
+        // 2. 익명 함수
+        const calculator2 = function(a,b){
+            return a*b;
+        }
+        let result2 = calculator2(6,7);
+        console.log(calculator2(8,9));
+        // 3. 화살표 함수
+        const calculator3 = (a,b) => a*b;
+        let result3 = calculator3(10,11);
+        console.log(calculator3(12,13));
+    </script>
 </body>
 </html>
