@@ -288,20 +288,33 @@
             document.getElementById('user_num').value = '';
         }
     </script>
+    <h3>예제11</h3>
+    <p>철수의 귤따기 체험, 귤 하나의 무게가 10g
+        바구니가 200g이 되면 멈춰야 한다.
+    </p>
+    <div id="resultGul">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div>
+    <button onclick="printGul();">체험시작</button>
+    <script>
+        function printGul(){
+            // 1. 귤 바구니가 비어있어야 합니다.
+            // 2. 바구니가 200g이 될때까지...
+            // 3. 한걸음 나아갈때 10g만큼 커진다.
+            let basket = 0;
+            while(basket < 200){
+                basket += 10;
+                // document.getElementById('resultGul').innerHTML 
+                //         += '<p>귤바구니 : '+basket+'g </p>';
+                console.log('귤바구니 : '+basket+'g');
+                if(basket === 200){
+                    // document.getElementById('resultGul').innerHTML 
+                    //     += '<h1>체험종료</h1>';
+                    console.log('체험종료');
+                }
+            }
+        }
+    </script>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

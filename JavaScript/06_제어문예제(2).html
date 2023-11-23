@@ -38,5 +38,36 @@
             document.getElementById('resultSpan').innerHTML = result;
         }
     </script>
+    <h3>예제 2-2</h3>
+    <h4>행 열 갯수 각각 입력받아 테이블 만들기</h4>
+    <button onclick="createTable();">테이블 생성</button>
+    <div id="resultDiv">
+        
+    </div>
+    <script>
+        function createTable(){
+            let row = prompt('테이블 행의 갯수는?');
+            let col = prompt('테이블 열의 갯수는?');
+            // 테이블의 구조 -> table tr td
+            let num = 1;
+            let ele = document.getElementById('resultDiv');
+            let result = '<table border="1">';
+            //ele.innerHTML += '<table border="1">';
+                for(let i = 0 ; i < row ; i++){
+                    result += '<tr>';
+                    for(let j = 0 ; j < col ; j++){
+                        result += '<td>';
+                        result += num;
+                        result += '</td>';
+                        num++;
+                    }
+                    result += '</tr>';
+                }
+            result += '</table>';    
+            ele.innerHTML = result;
+        }
+    </script>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+</head>
+<body>
+    <h1>함수란 무엇인가?</h1>
+    <p>전달값을 넣으면, 연산한 다음, 결과값 도출</p>
+    <h2>함수를 왜 사용하는가?</h2>
+    <button onclick="changeColor('darkred');">
+        색추가
+    </button>
+    <h1 id="darkred">빨강색</h1>
+    <h1 id="coral">주황색</h1>
+    <h1 id="gold">노랑색</h1>
+    <script>
+        // document.getElementById('darkred').style.color ='darkred';
+        // document.getElementById('coral').style.color = 'coral';
+        // document.getElementById('gold').style.color = 'gold';
+        function changeColor(color){
+            document.getElementById(color).style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>
