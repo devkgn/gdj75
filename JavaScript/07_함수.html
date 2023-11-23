@@ -121,15 +121,51 @@
         console.log(arrowFunc1());
         // 2. let 변수명 = (매개변수) => {로직[return]}
         const arrowFunc2 = (num1,num2,op) =>{
+            let result = 0;
             switch(op){
-                case '+':console.log(num1+num2);break;
-                case '-':console.log(num1-num2);break;
+                case '+':result = num1+num2;break;
+                case '-':result = num1-num2;break;
+                case '*':result = num1*num2;break;
             }
+            console.log(result);
         }
         arrowFunc2(10,20,'-');
-
+        // 3. let 변수명 = (매개변수) => 반환값
+        // 문자열 중에서 특정 문자의 위치 파악 '문자열'.indexOf('문자');
+        const arrowFunc3 = (str, s) => str.indexOf(s);
+        console.log(arrowFunc3('apple','e'));
+        // 4. let 변수명 = 매개변수 => 반환값
+        // 문자열의 길이 파악 '문자열'.length;
+        const arrowFunc4 = str => str.length;
+        console.log(arrowFunc4('butterfly'));
     </script>
-
+    <h3>익명함수를 매개변수로 활용</h3>
+    <script>
+        // setTimeout(기능, 시간);
+        // 시간이 지나고 기능을 수행하라
+        setTimeout(function(){
+            console.log('2초만 기다려주세요~');
+        },2000);
+    </script>
+    <h3>익명함수를 반환값으로 사용</h3>
+    <script>
+        const returnFunc = () => {
+            const innerFunc = (msg) =>{console.log(msg);}
+            return innerFunc;
+        }
+        returnFunc()('이게... 진짜... 되나...?');
+    </script>
+    <h3>즉시실행함수</h3>
+    <p>호출없이 바로 실행,스스로 동작하는 함수</p>
+    <script>
+        let a = 2, b = 0;
+        b = ++a;
+        (function(){
+            a = 2;
+            b = 0;
+        })();
+        b = a++;
+    </script>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
