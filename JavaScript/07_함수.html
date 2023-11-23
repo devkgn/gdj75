@@ -23,5 +23,75 @@
             document.getElementById(color).style.backgroundColor = color;
         }
     </script>
+    <h2>매개변수</h2>
+    <p>전달값. 함수를 선언했을때 괄호 안에 있는 값.</p>
+    <script>
+        // 과일의 이름과 가격 입력 
+        // 값을 console패널에 출력
+        function printFruit(name,price){
+            // name 매개변수의 자료형이 string인 경우만 출력
+            if(typeof name === 'string'){
+                console.log('과일 이름 : '+name);
+            }else{
+                console.log('printFruit의 첫번째 매개변수는 string을 사용하세요.');
+            }
+            // price 매개변수의 자료형이 number인 경우만 출력
+            if(typeof price === 'number'){
+                console.log('과일 가격 : '+price);
+            }else{
+                console.log(typeof price);
+            }
+        } 
+        printFruit('수박',35000);  
+        printFruit(15000,'딸기');
+
+        // 선언한 매개변수보다 더 작은 수의 매개변수를 입력
+        printFruit('참외');
+
+        // 선언한 매개변수보다 더 많은 수의 매개변수 입력
+        printFruit('수박',20000,'초특가');
+
+        // 매개변수에 default값 설정 가능
+        function printFruitDefault(str='체리',price=15000){
+            console.log(str+' 한 박스에'+price+'원입니다.');
+        }
+        printFruitDefault();
+
+        // 가변인자(가변매개변수) 함수
+        // 함수의 매개변수로 몇개를 입력하던 모든 값을 더하기
+        function multipleParam(){
+            // console.log(arguments);
+            let result = 0;
+            for(let i = 0 ; i < arguments.length ; i++){
+                result += arguments[i];
+            }
+            console.log(result);
+        }
+        multipleParam(1,2,3,4,5,6,7,8,9,10);
+        multipleParam(2,4,698);
+    </script>
+    <h2>리턴</h2>
+    <p>결과값, 전달값. 함수의 연산으로 인해 도출되는 최종값</p>
+    <button onclick="alert(calculator(30,23,80));">계산하기</button>
+    <script>
+        // 오늘의 년, 월, 일을 리턴받아서 console 패널에 출력
+        function toDay(){
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = date.getMonth()+1;
+            const day = date.getDate();
+            return year+'년 '+month+'월 '+day+'일';
+        }
+        console.log(toDay());
+        // 매개변수와 반환값이 모두 있는 함수
+        function calculator(num1,num2,num3){
+            return num1*num2*num3 ;
+        }
+    </script>
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
