@@ -88,8 +88,47 @@
             return num1*num2*num3 ;
         }
     </script>
+    <h2>선언적 함수</h2>
+    <p>한계 : 중복 함수명 발생 -> 제일 마지막 줄에 선언된 함수로 덮어쓰기</p>
+    <script>
+        function basicFunc(){
+            console.log('선언적 함수(1)');
+        }
+        basicFunc();
+        function basicFunc(){
+            console.log('선언적 함수(2)');
+        }
+    </script>
+    <h2>익명함수</h2>
+    <p>선언적 함수의 한계(중복 함수명)를 극복-> 블록 스코프 변수의 장점 흡수</p>
+    <script>
+        let anonyFunc = function(){
+            console.log('익명함수 쉽죠?');
+        }
+        anonyFunc();
+    </script>
+    <h2>화살표 함수</h2>
+    <p>익명 함수를 더 간단하게!!</p>
+    <script>
+        // 1. let 변수명 = () => {로직[return]}
+        const arrowFunc1 = () => {
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = date.getMonth()+1;
+            const day = date.getDate();
+            return year+'-'+month+'-'+day;
+        }
+        console.log(arrowFunc1());
+        // 2. let 변수명 = (매개변수) => {로직[return]}
+        const arrowFunc2 = (num1,num2,op) =>{
+            switch(op){
+                case '+':console.log(num1+num2);break;
+                case '-':console.log(num1-num2);break;
+            }
+        }
+        arrowFunc2(10,20,'-');
 
-
+    </script>
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br>

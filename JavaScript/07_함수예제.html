@@ -6,6 +6,17 @@
     <title>함수 예제</title>
 </head>
 <body>
-    
+    <h3>예제1</h3>
+    <input type="text" id="user_hello">
+    <button onclick="sayHello(document.getElementById('user_hello').value);">클릭</button>
+    <script>
+        console.log('안녕하세요');
+        console.log('Hello');
+        console.log('Hola');
+        function sayHello(greet){
+            console.log(greet);
+        }
+        sayHello('Hi');
+    </script>
 </body>
 </html>
