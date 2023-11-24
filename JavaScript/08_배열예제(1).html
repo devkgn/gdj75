@@ -48,6 +48,18 @@
         }
         checkExist('콜라');
         checkExist('사과');
+        // 11-(1). find
+        let numArr = [1,2,3,4,5,6,7,8,9,10];
+        // 짝수 -> 수를 2로 나눴을때 나머지가 0
+        let result = numArr.find(function(ele,idx,arr){
+            return ele % 2 === 0;
+        });
+        console.log(result);
+        // 11-(2). filter
+        result = numArr.filter(function(ele,idx,arr){
+            return ele % 2 === 0 ;
+        });
+        console.log(result);
     </script>
 </body>
 </html>
