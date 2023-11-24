@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열(상)</title>
+</head>
+<body>
+    <h1>배열 예제1</h1>
+    <fieldset>
+        <legend>보기</legend>
+        <label id="la1">사과, 바나나, 당근</label><br>
+        <label id="la2">김밥, 치즈, 떡볶이, 햄버거</label><br>
+        <label id="la3">환타, 사이다, 콜라</label><br>
+        <label id="la4">고양이, 강아지</label>
+    </fieldset>
+    <input type="text" id="target" placeholder="찾을 문자열을 입력하세요.">
+    <input type="button" value="전송 및 처리" onclick="searchStr();">
+    <script>
+        function searchStr(){
+            // 1. 라벨안에 텍스트 가져오기
+            let la1 = document.getElementById('la1').innerText;
+            let la2 = document.getElementById('la2').innerText;
+            let la3 = document.getElementById('la3').innerText;
+            let la4 = document.getElementById('la4').innerText;
+            
+            // 2. 각 문자열 변수를 배열로 변환
+            la1 = la1.split(',');
+            la2 = la2.split(',');
+            la3 = la3.split(',');
+            la4 = la4.split(',');
+
+            // 3. 배열 합치기
+            // (1) 기본 방법 사용하기
+            // let result = la1.concat(la2);
+            // result = result.concat(la3);
+            // result = result.concat(la4);
+            // (2) 한번에 합치기
+            // let result = la1.concat(la2,la3,la4);
+            // (3) for문 사용하기
+            let result = [];
+            for(i = 1 ; i <= 4 ; i++){
+                let arr = (document.getElementById('la'+i).innerText).split(',');
+                result = result.concat(arr);
+            }
+            const text = document.getElementById('target').value;
+            if(result.indexOf(text) !== -1){
+                alert(text+'는(은) 배열 인덱스'+result.indexOf(text)+'에 존재합니다.');
+            } else{
+                alert(text+'는(은) 존재하지 않습니다.');
+            }
+        }
+    </script>
+</body>
+</html>

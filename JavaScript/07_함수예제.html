@@ -37,5 +37,81 @@
         let result3 = calculator3(10,11);
         console.log(calculator3(12,13));
     </script>
+    <h3>예제3</h3>
+    <style>
+        fieldset{
+            text-align: center;
+            background-color: gainsboro;
+        }
+        .under_div{
+            background-color: gold;
+            display: none;
+        }
+    </style>
+    <fieldset>
+        <legend>
+            검색할 항목을 선택하세요.
+        </legend>
+        <input type="radio" id="title" name="page_type" onclick="changePage('title');">
+        <label for="title">제목</label>
+        <input type="radio" id="date" name="page_type" onclick="changePage('date');">
+        <label for="date">날짜</label>
+        <input type="radio" id="writer" name="page_type" onclick="changePage('writer');">
+        <label for="writer">작성자</label>
+    </fieldset>
+    <div class="under_div" id="title_div">
+        <span>검색할 제목을 입력하세요. :</span><br>
+        <input type="text">
+        <input type="button" value="검색">
+    </div>
+    <div class="under_div" id="date_div">
+        <span>검색할 날짜를 입력하세요 : </span><br>
+        <input type="date">
+        ~
+        <input type="date">
+        <input type="button" value="검색">
+    </div>
+    <div class="under_div" id="writer_div">
+        <span>작성자를 입력하세요 : </span><br>
+        <input type="text">
+        <input type="button" value="검색">
+    </div>
+    <script>
+        function changePage(page_type){
+            // 1. class가 under_div인 요소들에 접근
+            // 2. 요소들을 회전하면서 각 요소의 id가 page_type+'_div'와 같은지 다른지
+            // 3. page_type+'_div'인 요소는 보이게, 다른 요소 숨기기
+            const allDiv = document.getElementsByClassName('under_div');
+            for(let i = 0 ; i < allDiv.length ; i++){
+                if(allDiv[i].id === page_type+'_div') allDiv[i].style.display ='block';
+                else allDiv[i].style.display = 'none';
+            }
+        }
+
+        // (1) id랑 display의 속성값을 매개변수로 받아와서 함수를 뺄수있겠다.
+        function changeState(divId,displayState){
+            document.getElementById(divId).style.display = displayState;
+        }
+
+        function titleFunc(){
+            //document.getElementById('title_div').style.display ='block';
+            changeState('title_div','block');
+            // document.getElementById('date_div').style.display = 'none';
+            // document.getElementById('writer_div').style.display = 'none';
+            changeState('date_div','none');
+            changeState('wrtier_div','none');
+            // (2) changeState가 반복되네 -> 반복만에 넣자
+        }
+        function dateFunc(){
+            document.getElementById('title_div').style.display ='none';
+            document.getElementById('date_div').style.display = 'block';
+            document.getElementById('writer_div').style.display = 'none';
+        }
+        function writerFunc(){
+            document.getElementById('title_div').style.display ='block';
+            document.getElementById('date_div').style.display = 'none';
+            document.getElementById('writer_div').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

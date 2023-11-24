@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI지수</title>
+    <style>
+        #result_div{ 
+            background-color: gainsboro;
+            width: 560px;height: 90px;
+        }
+        li:first-child{ background-color: skyblue; }
+        li:nth-child(2){ background-color: yellowgreen; }
+        li:nth-child(3){ background-color: gold; }
+        li:nth-child(4){ background-color: orange; }
+        li:last-child{background-color: crimson; }
+    </style>
+</head>
+<body>
+    <h1>BMI지수 도출</h1>
+    <h2>BMI지수 = 몸무게kg / (키m * 키m)</h2>
+    <ul>
+        <li>18.5 미만 : 저체중</li>
+        <li>18.5 이상 24.9 미만 : 표준</li>
+        <li>25 이상 29.9 미만 : 과체중</li>
+        <li>30 이상 34.9 미만 : 비만</li>
+        <li>35이상 : 고도비만</li>
+    </ul>
+    <p>
+        사용자가 아래 입력창에 몸무게와 키를 입력하면 회색창에 BMI지수가 출력되도록 하세요.<br>
+        그리고, BMI 지수에 따라 회색창의 배경색을 li의 배경색과 같은 색으로 변경하세요.
+    </p>
+    <hr>
+    <p>
+        * Hint : 이 문제는 세단계로 풀어보세요. <br>
+        <mark>Step 1.</mark> 출력 버튼을 클릭했을 때 호출할 함수 하나(printDiv)로 기능을 만드세요.<br>
+        <mark>Step 2.</mark> printDiv는 두가지 역할을 수행하고 있습니다. <br>
+        BMI 지수를 계산하는 것, BMI 지수 결과를 기준으로 배경색을 변경하는 것이 그것이죠.<br>
+        BMI 지수 결과를 매개변수로 받아서 result_div의 배경색을 변경하는 함수(changeBack)을 만드세요.<br>
+        <mark>Step 3.</mark> printDiv 함수에서 해당 기능을 changeBack 함수의 호출구문으로 변경하세요.
+    </p>
+    <table>
+        <tr>
+            <td>
+                <label for="user_weight">몸무게 : </label>
+            </td>
+            <td>
+                <input type="number" id="user_weight" placeholder="kg단위로 입력하세요.">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="user_height">키 : </label>
+            </td>
+            <td>
+                <input type="number" id="user_height" placeholder="m단위로 입력하세요.">
+                <!-- 버튼에 onclick 속성을 추가하고 함수를 할당하세요. -->
+                <button>출력</button>
+            </td>
+        </tr>
+    </table>
+    <div id="result_div">
+
+    </div>
+    <script>
+        // 1. printDiv 함수를 선언하고, 이 함수로 모든 기능이 동작하도록 만드세요. 
+        // 2. BMI 지수 결과를 매개변수로 받아서 result_div의 배경색을 변경하는 함수(changeBack)을 만드세요.
+        // 3. printDiv 함수에서 해당 기능을 changeBack 함수의 호출구문으로 변경하세요.
+    </script>
+</body>
+</html>
