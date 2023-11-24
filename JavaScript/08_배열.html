@@ -138,8 +138,38 @@
         num.forEach((ele)=>{
             console.log('값 : '+ele);
         });
+        // 화살표 함수든 익명함수든 상관X
+        num.forEach(function (ele,idx){
+            console.log(ele);
+        });
     </script>
-
+    <h3>sort</h3>
+    <!-- 
+        1. 양수는 앞뒤자리 바꾸고
+        2. 음수는 앞뒤자리 바꾸지X
+        3. 0은 같은숫자다.
+     -->
+    <script>
+        let number = [4,1,2,7,6];
+        // 오름차순
+        number.sort(function(left,right){
+            if(left>right) return 1;
+            else if(left<right) return -1;
+            else return 0;
+        });
+        number.sort(function(left,right){
+            return left-right;
+        });
+        // 내림차순
+        number.sort(function(left,right){
+            if(left>right) return -1;
+            else if(left<right) return 1;
+            else return 0;
+        });
+        number.sort(function(left,right){
+            return right-left;
+        });
+    </script>
 
 
 
