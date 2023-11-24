@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tblcontainer">
+        <h1>검색이 가능한 표</h1>
+        <p>문제 이미지에 있는 대로 people 객체 배열을 선언한 뒤, 
+            이를 활용하여 아래 기능이 동작하도록 만드세요.
+        </p>
+        <button onclick="printData();">전체 데이터출력</button>
+        <button onclick="searchAge();">20대 출력</button>
+        <input type="text" id="addr" placeholder="주소를 입력하세요."/>
+        <button onclick="searchAddr();">주소 검색</button><br><br>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>나이</th>
+                    <th>성별</th>
+                    <th>주소</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function setPeople(name, age, gender, addr){
+            let obj = {
+                name : name,
+                age : age,
+                gender : gender, 
+                addr : addr
+            };
+            return obj;
+        }
+        
+        let people = [
+            setPeople('김가남',20,'여','동작구'),
+            setPeople('김나남',30,'남','경기도 평택'),
+            setPeople('김다담',36,'여','부산시 진구'),
+            setPeople('김라람',28,'남','서울시 관악구'),
+        ];
+
+        let printData = function(){
+            const table = document.querySelector('#tblcontainer>table>tbody');
+            table.innerHTML = '';
+            people.forEach(element =>{
+                let tr = '<tr>';
+                    tr += '<td>'+element.name+'</td>';
+                    tr += '<td>'+element.age+'</td>';
+                    tr += '<td>'+element.gender+'</td>';
+                    tr += '<td>'+element.addr+'</td>';
+                    tr += '</tr>';
+                table.innerHTML += tr;
+            })
+        }
+
+        let searchAge = function(){
+            const table = document.querySelector('#tblcontainer>table>tbody');
+            table.innerHTML = '';
+            people.forEach(element => {
+                if(element.age >= 20 && element.age < 30){
+                    let tr = '<tr>';
+                    tr += '<td>'+element.name+'</td>';
+                    tr += '<td>'+element.age+'</td>';
+                    tr += '<td>'+element.gender+'</td>';
+                    tr += '<td>'+element.addr+'</td>';
+                    tr += '</tr>';
+                    table.innerHTML += tr;
+                }
+            });
+        }
+
+        let searchAddr = function(){
+            const table = document.querySelector('#tblcontainer>table>tbody');
+            const keyword=document.getElementById("addr").value;
+            table.innerHTML = '';
+            people.forEach(element => {
+                if(element.addr.includes(keyword)){
+                    let tr = '<tr>';
+                    tr += '<td>'+element.name+'</td>';
+                    tr += '<td>'+element.age+'</td>';
+                    tr += '<td>'+element.gender+'</td>';
+                    tr += '<td>'+element.addr+'</td>';
+                    tr += '</tr>';
+                    table.innerHTML += tr;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
