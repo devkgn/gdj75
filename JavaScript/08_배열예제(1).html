@@ -30,6 +30,24 @@
         // 7. pop -> 제거
         val.pop();
         console.log(val);
+        // 8. unshift -> 맨 앞에 추가
+        val.unshift('샤인머스캣');
+        console.log(val);
+        // 9. shift -> 맨 앞에 제거
+        val.shift();
+        console.log(val);
+        // 10. includes
+        function checkExist(str){
+            if(val.includes(str)){
+                console.log(str+' : O');
+                console.log('인덱스 : '+val.indexOf(str));
+            } else{
+                console.log(str+' : X');
+                console.log('존재하지 않습니다.');
+            }
+        }
+        checkExist('콜라');
+        checkExist('사과');
     </script>
 </body>
 </html>

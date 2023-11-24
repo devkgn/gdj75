@@ -99,6 +99,41 @@
         student.shift();
         console.log(student);
     </script>
+    <h3>includes('조회할값');</h3>
+    <script>
+        let student3 = ['tom','json','maria','my'];
+        console.log(student3.includes('김가남'));
+        if(student3.includes('maria')){
+            console.log(student3.indexOf('maria'));
+        } else{
+            console.log('그런 사람 없다.');
+        }
+    </script>
+    <h3>find(function(ele,idx,arr){})</h3>
+    <script>
+        let num = [333,2376,896,55];
+        // 2000이상인 값을 찾고 싶다!!
+        result = num.find(function(a,b,c){
+            console.log(a);
+            console.log(b);
+            console.log(c);
+            return b === 3;
+        });
+        console.log('==================');
+        console.log(result);
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
