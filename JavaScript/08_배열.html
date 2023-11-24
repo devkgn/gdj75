@@ -117,9 +117,17 @@
             console.log(a);
             console.log(b);
             console.log(c);
-            return b === 3;
+            return a > 300;
         });
         console.log('==================');
+        console.log(result);
+    </script>
+    <h3>filter(function(ele,idx,arr){});</h3>
+    <script>
+        num = [333,2376,896,55];
+        result =  num.filter(function(ele,idx,arr){
+            return ele>800;
+        });
         console.log(result);
     </script>
 
