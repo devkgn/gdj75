@@ -51,5 +51,37 @@
             }
         }
     </script>
+    <h3>예제2</h3>
+    <fieldset>
+        <legend>
+            보기
+        </legend>
+        <label id="str1">n o l e m</label><br>
+        <label id="str2">r e t a w</label>
+    </fieldset>
+    <div id="resultDiv" style="border:1px solid darkred; height: 25px;">
+        이곳에 정답이 출력 될 수 있도록 하세요.
+    </div>
+    <button onclick="createArr();">처리</button>
+    <script>
+        function createArr(){
+            // 1. 처리할 데이터 가져오기
+            let str1 = document.getElementById('str1').innerText;
+            let str2 = document.getElementById('str2').innerText;
+            
+            // 2. 작업을 위해서 데이터 자료형 배열로 변화
+            let arr1 = str1.split(' ');
+            let arr2 = str2.split(' ');
+
+            // 3. 두개의 데이터 합치자
+            let result = arr1.concat(arr2);
+            // 4. 합쳐진 데이터를 뒤집자
+            result.reverse();
+            // 5. 배열을 문자열 형태로 변환
+            result = result.join('');
+            // 6. 최종결과 출력
+            document.getElementById('resultDiv').innerHTML = result;
+        }
+    </script>
 </body>
 </html>
