@@ -58,9 +58,17 @@
     }
 </script>
 <h3>예제2</h3>
-<p>김철수 문제~</p>
+<p onclick="cutMemeber();">김철수 문제~</p>
 <script>
-
+    function cutMemeber(){
+        let str = "김철수, 이서준, 박도윤, 최예준, 서시우, 김주원, 최도현, 박준서, 김선우, 이유준, 최서진";
+        let arr = str.split(',');
+        let idx = arr.indexOf('김철수');
+        if(idx !== -1){
+            arr[idx] = '황철수';
+        }
+        alert(arr);
+    }
 </script>
 <h3>예제3</h3>
 <p onclick="rndNum();">
@@ -77,6 +85,28 @@
             arrRan[i] = numRan;
         }
         alert(arrRan);
+    }
+</script>
+<h3>예제4</h3>
+<button onclick="printToday();">오늘</button>
+<script>
+    function printToday(){
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = today.getMonth()+1;
+        const date = today.getDate();
+        let day = today.getDay();
+        // switch(day){
+        //     case 0 : day = '일';break;
+        //     case 1 : day = '월';break;
+        //     case 2 : day = '화'; break;
+        //     case 3 : day = '수'; break;
+        //     case 4 : day = '목'; break;
+        //     case 5 : day ='금';break;
+        //     case 6 : day ='토';break;
+        // }
+        const arr = ['일','월','화','수','목','금','토'];
+        alert(year+'년 '+month+'월 '+date+'일 '+arr[day]+'요일');
     }
 </script>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
