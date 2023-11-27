@@ -75,8 +75,22 @@
             newWin.resizeTo(Math.floor(Math.random()*900)+1, Math.floor(Math.random()*900)+1);
         }
         const autoMoveSize = function(){
-
+            setInterval(()=>{
+                moveTest();
+                resizeTest();
+            },1000);
         }
     </script>
+    <h1>
+        onload속성 이용하기
+    </h1>
+    <p>페이지에 내용을 모두 읽어드린 후에 실행되는 로직</p>
+    <script>
+        window.onload = function(){
+            let ele = document.getElementById('test');
+            console.log(ele);
+        }
+    </script>
+    <h1 id="test">새롭게 생긴 h1</h1>
 </body>
 </html>
