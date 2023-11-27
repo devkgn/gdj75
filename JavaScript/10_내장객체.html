@@ -8,7 +8,7 @@
 <body>
     <h3>String 내장객체</h3>
     <!-- uppercase만 쌍따옴표 이런거 아님!! -->
-    <h4>"".toUpperCase(); ''.toLowerCase();</h4>
+    <h4>"".toUpperCase(); ''.toLowerCase();, trim()</h4>
     <select id="fruit" onchange="changeFruit();">
         <option value="">선택</option>
         <option value=" apple ">apple</option>
@@ -52,9 +52,20 @@
         let idxGu1 = addr.indexOf('구'); //5
         // alert(idxGu1);
         let idxGu2 = addr.lastIndexOf('구');
+        //alert(idxGu2);
         let result = addr.substring(0, idxGu1+1);
         document.getElementById('address').value = result;
-
+    </script>
+    <h4>split, includes, replace</h4>
+    <script>
+        let temp = 'BTS,봉준호,손흥민,제이팍';
+        // 1. ,를 기준으로 잘라서 배열에 넣기
+        let arr = temp.split(',');
+        // 2. 문자열에 BTS가 포함되어 있다면 뉴진스로 바꾸자
+        if(temp.includes('BTS')){
+            temp = temp.replace('BTS','뉴진스');
+        }
+        console.log(temp);
     </script>
 </body>
 </html>
