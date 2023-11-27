@@ -83,5 +83,101 @@
             document.getElementById('resultDiv').innerHTML = result;
         }
     </script>
+    <h3>배열 예제3</h3>
+    <p>
+        문자열을 여러개 입력 받은 후 <br>
+        출력 버튼 클릭시 입력했던 모든 문자열이 출력되도록 만드세요<br>
+        예) 개구리 -> 입력, 바나나-> 입력, 복숭아->입력
+        출력 : 개구리, 바나나, 복숭아
+    </p>
+    <fieldset>
+        <legend>입력</legend>
+        <input type="text" id="str">
+        <input type="button" onclick="addStr();" value="입력">
+    </fieldset>
+    <div id="resultDiv2">
+        이 부분에 정답이 출력 될 수 있도록 하세요
+    </div>
+    <br>
+    <button onclick="printResult();">출력</button>
+    <script>
+        //우리가 뭘 하고 싶은가...?
+        //입력창에 글자를 입력하면 배열에 추가가 되야하고
+        //최종적으로 출력버튼을 클릭하면 우리가 만든 배열이 출력되야 한다.
+        // 1. addStr 안에 배열($arr)을 적어줬어요.
+        // 2. $arr을 addStr에서도 쓰고 싶고, printResult에도 쓰고 싶어졌음
+        // 3. $arr을 밖으로 빼줘야겠다!!
+        // (let 키워드를 활용해서 변수를 선언하면 해당하는 블록 안에서만 쓸 수 있기 때문에)
+        let $arr = [];
+        let addStr = () =>{
+            // 데이터 가져오기
+            const text = document.querySelector('#str');
+            // 데이터 처리하기
+            $arr.push(text.value);
+            text.value = '';
+        }
+        let printResult = function(){
+            // 데이터 출력하기
+            document.getElementById('resultDiv2').innerHTML = $arr;
+        }
+    </script>
+    <h3>배열 예제 4</h3>
+    <p>
+        다음 보기의 문자열을 바탕으로<br>
+        삭제할 음식과 추가할 음식을 입력받아서<br>
+        지우고, 추가하는 코드를 작성하여라(단, 1개씩 입력)<br>
+    </p>
+    <p>
+        예시) 삭제 : 당근 / 추가 : 타코야끼<br>
+        결과 -> 피자 치킨 햄버거 떡볶이 타코야끼
+    </p>
+    <style>
+        input[type=text]{
+            width: 200px;
+        }
+        #result_div{
+            border: 1px solid red;
+            width: 100%;
+            height: 20px;
+        }
+    </style>
+    <fieldset>
+        <legend>보기</legend>
+        <span id="origin_text">피자 치킨 당근 햄버거 떡볶이</span>
+    </fieldset>
+    <br>
+    <input type="text" id="delete_food" placeholder="삭제할 음식이름을 입력하세요">
+    <input type="text" id="add_food" placeholder="추가할 음식이름을 입력하세요">
+    <br><br>
+    <div id="result_div">
+        이 부분에 정답이 출력될 수 있도록 하세요.
+    </div><br>
+    <button onclick="processArr();">처리 및 출력</button>
+    <script>
+        const processArr = function(){
+            // 받아올 데이터가 뭐냐?
+            // 기존에 text를 받아와야하겠죠.
+            // 기존 text, 삭제할 음식이름, 추가할 음식이름
+            const ori = document.querySelector('#origin_text').innerText;
+            const addText = document.querySelector('#add_food').value;
+            const deleteText = document.querySelector('#delete_food').value;
+
+            // string 형태인 ori 변수를 array로 바꿔주자
+            const arr = ori.split(' ');
+            console.log(arr);
+
+            // 사용자가 삭제하고 싶은 음식이 위치가 어딘지 파악
+            // 그부분의 데이터를 추가할 음식으로 변경
+            // 1. 사용자가 삭제하고 싶은 음식의 위치 -> indexOf
+            // 2. 사용자가 삭제하고 싶은 음식의 위치에 추가하고 싶은 음식을 입력
+            const deleteIdx = arr.indexOf(deleteText);
+            arr[deleteIdx] = addText;
+
+            // 1. 화면에 arr출력
+            // 2. 배열을 출력하는데 배열 원래 모양대로가 아니라 ,를 띄어쓰기로 바꿔서 출력
+            // => join함수를 써야겠구나!!
+            document.querySelector('#result_div').innerHTML = arr.join(' ');
+        }
+    </script>    
 </body>
 </html>

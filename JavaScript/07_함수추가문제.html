@@ -55,7 +55,7 @@
             <td>
                 <input type="number" id="user_height" placeholder="m단위로 입력하세요.">
                 <!-- 버튼에 onclick 속성을 추가하고 함수를 할당하세요. -->
-                <button>출력</button>
+                <button onclick="printDiv();">출력</button>
             </td>
         </tr>
     </table>
@@ -66,6 +66,34 @@
         // 1. printDiv 함수를 선언하고, 이 함수로 모든 기능이 동작하도록 만드세요. 
         // 2. BMI 지수 결과를 매개변수로 받아서 result_div의 배경색을 변경하는 함수(changeBack)을 만드세요.
         // 3. printDiv 함수에서 해당 기능을 changeBack 함수의 호출구문으로 변경하세요.
+        let ele;
+        function printDiv(){
+            // 1. 사용자가 입력한 값 받아와서, BMI지수 계산 -> BMI 지수 출력
+            // 2. 회색 네모 -> 적합한 색으로 변경
+            const userWeight = Number(document.getElementById('user_weight').value);
+            const userHeight = Number(document.getElementById('user_height').value);
+            const result = userWeight / (userHeight * userHeight);
+            ele = document.getElementById('result_div');
+            ele.innerHTML = result;
+            changeBack(result);
+        }
+
+        function changeBack(calResult){
+            // 기준점 : 18.5, 18.5~24.9, 25~29.9, 30~34.9, 35이상
+            // 1. 낮은 값에서부터 조건식을 생성
+            // 2. 높은 값에서부터 조건식을 생성
+            if(35 <= calResult){
+                ele.style.backgroundColor = 'crimson';
+            } else if(30 <= calResult){
+                ele.style.backgroundColor = 'orange';
+            } else if(25 <= calResult){
+                ele.style.backgroundColor = 'gold';
+            } else if(18.5 <= calResult){
+                ele.style.backgroundColor = 'yellowgreen';
+            } else{
+                ele.style.backgroundColor = 'skyblue';
+            }
+        }
     </script>
 </body>
 </html>

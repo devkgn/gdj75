@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tblcontainer">
+        <h1>검색이 가능한 표</h1>
+        <p>문제 이미지에 있는 대로 people 객체 배열을 선언한 뒤, 
+            이를 활용하여 아래 기능이 동작하도록 만드세요.
+        </p>
+        <button onclick="printAll();">전체 데이터출력</button>
+        <button onclick="searAge();">20대 출력</button>
+        <input type="text" id="addr" placeholder="주소를 입력하세요."/>
+        <button onclick="searchAddr();">주소 검색</button><br><br>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>나이</th>
+                    <th>성별</th>
+                    <th>주소</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // 함수로 객체 만들기
+        function setPerson(userName, userAge, userGender, userAddr){
+            let obj = {
+                name : userName,
+                age : userAge,
+                gender : userGender,
+                addr : userAddr
+            }
+            return obj;
+        }
+        // 객체 배열 만들기
+        let people = [
+            setPerson('김가남',20,'여','서울시 동작구'),
+            setPerson('김나남',30,'남','경기도 평택'),
+            setPerson('김다담',36, '여','부산시 진구'),
+            setPerson('김라람',28,'남','서울시 관악구'),
+        ];
+        // 전체 데이터 출력
+        function printAll(){
+            const tbl = document.querySelector('#tblcontainer>table>tbody');
+            tbl.innerHTML = '';
+            people.forEach((element)=>{
+                // let result = '<tr>';
+                //     result += '<td>'+element.name+'</td>';
+                //     result += '<td>'+element.age+'</td>';
+                //     result += '<td>'+element.gender+'</td>';
+                //     result += '<td>'+element.addr+'</td>';
+                //     result += '</tr>';
+                    tbl.innerHTML += printData(element);
+            });
+        }
+        // 20대 출력
+        function searAge(){
+            const tbl = document.querySelector('#tblcontainer>table>tbody');
+            tbl.innerHTML = '';
+            people.forEach(function (element){
+                if(element.age >= 20 && element['age']<30){
+                    // let result = '<tr>';
+                    // result += '<td>'+element.name+'</td>';
+                    // result += '<td>'+element.age+'</td>';
+                    // result += '<td>'+element.gender+'</td>';
+                    // result += '<td>'+element.addr+'</td>';
+                    // result += '</tr>';
+                    tbl.innerHTML += result;
+                }
+            });
+        }
+
+        // 주소 검색
+        function searchAddr(){
+            const tbl = document.querySelector('#tblcontainer>table>tbody');
+            tbl.innerHTML = '';
+            const keyword = document.getElementById('addr').value;
+            people.forEach(element =>{
+                if(element.addr.includes(keyword)){
+                    // let result = '<tr>';
+                    // result += '<td>'+element.name+'</td>';
+                    // result += '<td>'+element.age+'</td>';
+                    // result += '<td>'+element.gender+'</td>';
+                    // result += '<td>'+element.addr+'</td>';
+                    // result += '</tr>';
+                    tbl.innerHTML += printData(element);
+                }
+            });
+        }
+
+        function printData(obj){
+            let result = '<tr>';
+                result += '<td>'+obj.name+'</td>';
+                result += '<td>'+obj.age+'</td>';
+                result += '<td>'+obj.gender+'</td>';
+                result += '<td>'+obj.addr+'</td>';
+                result += '</tr>';
+            return result;    
+        }
+    </script>
+</body>
+</html>

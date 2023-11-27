@@ -3,96 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>객체 연습문제</title>
 </head>
 <body>
-    <div id="tblcontainer">
-        <h1>검색이 가능한 표</h1>
-        <p>문제 이미지에 있는 대로 people 객체 배열을 선언한 뒤, 
-            이를 활용하여 아래 기능이 동작하도록 만드세요.
-        </p>
-        <button onclick="printData();">전체 데이터출력</button>
-        <button onclick="searchAge();">20대 출력</button>
-        <input type="text" id="addr" placeholder="주소를 입력하세요."/>
-        <button onclick="searchAddr();">주소 검색</button><br><br>
+    <h1>예제1</h1>
+    <h2>🥐빵 좋아해요...?🥖</h2>
+    <fieldset>
+        <legend>출력</legend>
+        <label for="product_name">메뉴명 : </label>
+        <input type="text" id="product_name"><br>
+        <label for="product_price">가격 :</label>
+        <input type="text" id="product_price">
+    </fieldset><br>
+    <button onclick="insertBread();">입력</button>
+    <button onclick="printBread();">출력</button>
+    <script>
+        let bread;
+        function insertBread(){
+            let productName = prompt("메뉴명 : ");
+            let productPrice = prompt("가격 : ");
+            bread = {
+                name : productName,
+                price : productPrice
+            }
+        }
+        function printBread(){
+            if(bread == null){
+                alert('정보가 입력되지 않았어요.');
+            } else{
+                if(bread['name'] == null){
+                    alert('메뉴명이 입력되지 않았어요.');
+                } else{
+                    if(bread['price'] == null){
+                        alert('가격이 입력되지 않았어요.');
+                    } else{
+                        document.getElementById('product_name').value = bread['name'];
+                        document.getElementById('product_price').value = bread['price'];
+                    }  
+                }
+            }
+        }
+    </script>
+    <h1>예제2</h1>
+    <p>
+        (1) 배열의 크기가 3인 배열 friendArr을 선언하세요. <br>
+        (2) 반려동물의 이름, 나이, 특징을 포함한 friend 객체를 반환하는 함수 setFriend()를 구성하세요.<br>
+        *setFriend 함수의 매개변수는 name, age, character 입니다.<br>
+        (3) friendArr 배열에 friend 객체 3개를 추가하세요.<br>
+        (4) friendArr을 아래와 같이 테이블에 출력하세요.
+    </p>
+    <div id="tbl">
+
+    </div>
+    <script>
+        let friends = new Array(3);
+        function setFriend(name, age, character){
+            let friend = new Object();
+            friend['name'] = name;
+            friend['age'] = age;
+            friend['character'] = character;
+            return friend;
+        }
+        friends[0] = setFriend('두부',2,'혓바닥 애교점');
+        friends[1] = setFriend('나로',8,'애견카페 대장');
+        friends[2] = setFriend('김철수',5,'천재견');
+        let tbl = '';
+            tbl += '<table border = "1">';
+            tbl += '<tr><th>이름</th><th>나이</th><th>특징</th></tr>';
+            for(let i = 0 ; i < friends.length ; i++){
+                tbl += '<tr>';
+                    for(key in friends[i]){
+                        tbl += '<td>'+friends[i][key]+'</td>';
+                    }
+                tbl += '</tr>';
+            }
+            tbl += '</table>';
+            document.getElementById('tbl').innerHTML = tbl;
+    </script>
+    <h1>예제3</h1>
+    <p>
+        다음 입력 버튼 클릭시 학생정보를 3명 저장받아(for문 사용)<br>
+        테이블을 생성하여 출력하는 코드를 작성하세요.<br>
+        단, 학생 정보는 객체로 처리하여 저장후 테이블에 입력하고<br>
+        모든 학생 정보는 객체 배열에 저장하여 console.log(objectArr)로 출력시<br>
+        객체 배열 정보가 console.log에 나와야 함
+    </p>
+    <style>
+        th{
+            width: 110px;
+            height: 60px;
+        }
+        td{
+            width: 110px;
+            height: 40px;
+        }
+        table{
+            caption-side: bottom;
+        }
+        table>caption{
+            color: red;
+        }
+    </style>
+    <div id="resultDiv5">
         <table border="1">
+            <caption>
+                학생정보 테이블<br>
+                <button onclick="inOutPrint();">입력 및 출력</button>
+            </caption>
             <thead>
                 <tr>
                     <th>이름</th>
                     <th>나이</th>
-                    <th>성별</th>
                     <th>주소</th>
                 </tr>
             </thead>
             <tbody>
-    
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
     </div>
     <script>
-        function setPeople(name, age, gender, addr){
-            let obj = {
+        let objectArr = [];
+        const inOutPrint = function(){
+            for(let i = 1 ; i <= 3 ; i++){
+                const sName = prompt(i+'번째 학생 이름 입력');
+                const sAge = prompt(i+'번째 학생 나이 입력');
+                const sAddr = prompt(i+'번째 학생 주소 입력');
+                const sInfo = studentObj(sName,sAge,sAddr);
+                objectArr.push(sInfo);
+            }
+            let text = '';
+            for(let i = 0 ; i < objectArr.length ; i++){ 
+                text += '<tr>';
+                text += '<td>'+objectArr[i]['name']+'</td>';
+                text += '<td>'+objectArr[i]['age']+'</td>';
+                text += '<td>'+objectArr[i]['addr']+'</td>';
+                text += '</tr>';
+            }
+            document.querySelector('#resultDiv5>table>tbody').innerHTML = text;
+        }
+
+        const studentObj = function(name,age,addr){
+            let sObj = {
                 name : name,
                 age : age,
-                gender : gender, 
                 addr : addr
             };
-            return obj;
+            return sObj;
         }
-        
-        let people = [
-            setPeople('김가남',20,'여','동작구'),
-            setPeople('김나남',30,'남','경기도 평택'),
-            setPeople('김다담',36,'여','부산시 진구'),
-            setPeople('김라람',28,'남','서울시 관악구'),
-        ];
-
-        let printData = function(){
-            const table = document.querySelector('#tblcontainer>table>tbody');
-            table.innerHTML = '';
-            people.forEach(element =>{
-                let tr = '<tr>';
-                    tr += '<td>'+element.name+'</td>';
-                    tr += '<td>'+element.age+'</td>';
-                    tr += '<td>'+element.gender+'</td>';
-                    tr += '<td>'+element.addr+'</td>';
-                    tr += '</tr>';
-                table.innerHTML += tr;
-            })
-        }
-
-        let searchAge = function(){
-            const table = document.querySelector('#tblcontainer>table>tbody');
-            table.innerHTML = '';
-            people.forEach(element => {
-                if(element.age >= 20 && element.age < 30){
-                    let tr = '<tr>';
-                    tr += '<td>'+element.name+'</td>';
-                    tr += '<td>'+element.age+'</td>';
-                    tr += '<td>'+element.gender+'</td>';
-                    tr += '<td>'+element.addr+'</td>';
-                    tr += '</tr>';
-                    table.innerHTML += tr;
-                }
-            });
-        }
-
-        let searchAddr = function(){
-            const table = document.querySelector('#tblcontainer>table>tbody');
-            const keyword=document.getElementById("addr").value;
-            table.innerHTML = '';
-            people.forEach(element => {
-                if(element.addr.includes(keyword)){
-                    let tr = '<tr>';
-                    tr += '<td>'+element.name+'</td>';
-                    tr += '<td>'+element.age+'</td>';
-                    tr += '<td>'+element.gender+'</td>';
-                    tr += '<td>'+element.addr+'</td>';
-                    tr += '</tr>';
-                    table.innerHTML += tr;
-                }
-            });
-        }
-    </script>
+    </script> 
 </body>
 </html>
