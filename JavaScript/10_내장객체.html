@@ -67,5 +67,30 @@
         }
         console.log(temp);
     </script>
+    <h3>
+        Math 객체가 제공하는 함수
+    </h3>
+    <button onclick="mathPrac();">Math연습</button>
+    <script>
+        function mathPrac(){
+            // 1. random기본
+            // 0~1(1미포함) 사이의 랜덤 소수
+            let rnd = Math.random();
+            console.log(rnd)
+            // 2. 도달하고 싶은 범위까지 숫자를 곱합니다.
+            rnd = rnd * 10;
+            // 3. 시작점만큼 더해줍니다.
+            rnd = rnd + 1;
+            // 4. 버림.
+            rnd = Math.floor(rnd);
+            console.log(rnd);
+
+            // 한번에 적는 방법
+            let rnd2 = Math.floor(Math.random()*10 +1);
+            console.log(rnd2);
+        }
+
+
+    </script>
 </body>
 </html>

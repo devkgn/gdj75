@@ -6,31 +6,56 @@
     <title>내장객체</title>
 </head>
 <body>
-<h1>예제1</h1>
-<p id="sentence">Lorem ipsum dolor sit amet</p>
-<label for="up">대문자 만들기</label>
-<input type="text" id="up">
-<br>
-<label for="low">소문자 만들기</label>
-<input type="text" id="low">
-<br>
-<label for="len">문장의 길이</label>
-<input type="text" id="len">
-<br>
-<label for="at">7번 인덱스에 있는 알파벳</label>
-<input type="text" id="at">
-<br>
-<label for="idx">알파벳 'p'의 위치</label>
-<input type="text" id="idx">
-<br>
-<label for="lastidx">뒤에서부터 찾았을 때 가장 가까운 'm'의 위치</label>
-<input type="text" id="lastidx">
-<br>
-<label for="sub">12번째 자리부터 5개의 알파벳</label>
-<input type="text" id="sub">
-<br>
-<label for="split">띄어쓰기 기준으로 단어 자르기</label>
-<textarea id="split"></textarea>
-<button onclick="stringTest();">String객체 함수 연습하기</button>
+    <h1>예제1</h1>
+    <p id="sentence">Lorem ipsum dolor sit amet</p>
+    <label for="up">대문자 만들기</label>
+    <input type="text" id="up">
+    <br>
+    <label for="low">소문자 만들기</label>
+    <input type="text" id="low">
+    <br>
+    <label for="len">문장의 길이</label>
+    <input type="text" id="len">
+    <br>
+    <label for="at">7번 인덱스에 있는 알파벳</label>
+    <input type="text" id="at">
+    <br>
+    <label for="idx">알파벳 'p'의 위치</label>
+    <input type="text" id="idx">
+    <br>
+    <label for="lastidx">뒤에서부터 찾았을 때 가장 가까운 'm'의 위치</label>
+    <input type="text" id="lastidx">
+    <br>
+    <label for="sub">12번째 자리부터 5개의 알파벳</label>
+    <input type="text" id="sub">
+    <br>
+    <label for="split">띄어쓰기 기준으로 단어 자르기</label>
+    <textarea id="split"></textarea>
+    <button onclick="stringTest();">String객체 함수 연습하기</button>
 </body>
 </html>
+<script>
+    function stringTest(){
+        const text = document.getElementById('sentence').innerText;
+        // console.log(text);
+        // let up = text.toUpperCase();
+        // document.getElementById('up').value = up;
+        changeVal('up',text.toUpperCase());
+        changeVal('low',text.toLowerCase());
+        changeVal('len',text.length);
+        changeVal('at',text.charAt(7));
+        changeVal('idx',text.indexOf('p'));
+        changeVal('lastidx',text.lastIndexOf('m'));
+        changeVal('sub',text.substring(12,5));
+        let textSplit = text.split(' ');
+        for(let i = 0 ; i < textSplit.length ; i++){
+            changeVal('split',textSplit[i]+'\n');
+        }
+    }
+
+    function changeVal(id, result){ 
+        document.getElementById(id).value += result;
+    }
+
+
+</script>
