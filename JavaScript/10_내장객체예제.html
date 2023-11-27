@@ -56,6 +56,28 @@
     function changeVal(id, result){ 
         document.getElementById(id).value += result;
     }
-
+</script>
+<h3>예제2</h3>
+<p>김철수 문제~</p>
+<script>
 
 </script>
+<h3>예제3</h3>
+<p onclick="rndNum();">
+    1. 비어있는 10개의 값을 저장할 수 있는 배열 생성<br>
+    2. 배열에 10개(1~10) 난수를 발생시켜서 초기값 지정<br>
+    3. alert창에 배열 출력
+</p>
+<script>
+    function rndNum(){
+        let arrRan = new Array(10);
+        for(let i = 0 ; i < arrRan.length ; i++){
+            let numRan;
+            numRan = Math.floor(Math.random()*10+1);
+            arrRan[i] = numRan;
+        }
+        alert(arrRan);
+    }
+</script>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
