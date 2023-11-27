@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내장객체</title>
+</head>
+<body>
+    <h3>String 내장객체</h3>
+    <!-- uppercase만 쌍따옴표 이런거 아님!! -->
+    <h4>"".toUpperCase(); ''.toLowerCase();</h4>
+    <select id="fruit" onchange="changeFruit();">
+        <option value="">선택</option>
+        <option value=" apple ">apple</option>
+        <option value="banana">banana</option>
+        <option value="orange">orange</option>
+        <option value="PEACH">peach</option>
+    </select>
+    <script>
+        let changeFruit = () =>{
+            let selectedFruit = document.getElementById('fruit').value;
+            selectedFruit = selectedFruit.toUpperCase();
+            // selectedFruit = selectedFruit.toLowerCase();
+            selectedFruit = selectedFruit.trim();
+            switch(selectedFruit){
+                case 'APPLE' : alert('사과!!');break;
+                case 'BANAN' : alert('바나나~');break;
+                case 'ORANGE' : alert('오렌지');break;
+                case 'PEACH' : alert('복숭아 신상');break;
+            }
+        }
+    </script>
+    <h4>length와 charAt의 활용</h4>
+    <input type="text" id="length_sample">
+    <button onclick="lengthBtn();">버튼</button>
+    <script>
+        let lengthBtn = function(){
+            const val = document.getElementById('length_sample').value;
+            for(let i = 0 ; i < val.length ; i++){
+                if(val.charAt(i) === 'b'){
+                    console.log('소문자 b다');
+                }
+                console.log(val.charAt(i));
+            }
+        }
+    </script>
+    <h4>indexOf, lasIndexOf, substring</h4>
+    <input type="text" id="address" style="width: 600px;"
+    value="서울 금천구 가산디지털2로 95 3층 구디아카데미 C반">
+    <script>
+        let addr = document.getElementById('address').value;
+        let idxGu1 = addr.indexOf('구'); //5
+        // alert(idxGu1);
+        let idxGu2 = addr.lastIndexOf('구');
+        let result = addr.substring(0, idxGu1+1);
+        document.getElementById('address').value = result;
+
+    </script>
+</body>
+</html>
