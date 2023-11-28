@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM예제</title>
+</head>
+<body>
+    <h3>예제1</h3>
+    <p>
+        사용자에게 태그와 문구를 입력받은 후,<br>
+        버튼을 클릭하면 test_div를 아이디 속성으로 갖는 div태그에 자식태그로 추가
+    </p>
+    <input type="text" id="tag" placeholder="태그입력">
+    <input type="text" id="text" placeholder="문구입력">
+    <input type="button" value="버튼" onclick="appendTag();">
+    <div id="test_div"></div>
+    <script>
+        let appendTag = () =>{
+            const tag = document.getElementById('tag').value;
+            const text = document.getElementById('text').value;
+            const nTag = document.createElement(tag);
+            const nText = document.createTextNode(text);
+            nTag.appendChild(nText);
+            document.querySelector('#test_div').appendChild(nTag);
+        }
+    </script>
+    <h3>예제2</h3>
+    <!-- 사용자로부터 이미지 주소값을 받을 input type text -->
+    <input type="text" id="img_src" placeholder="이미지 경로">
+    <!-- 이미지 추가 기능을 동작하게 할 버튼 -->
+    <button onclick="addImg();">이미지 추가</button>
+    <!-- 이미지를 추가할 공간(div) -->
+    <div class="img_div"></div>
+    <script>
+        const addImg = function(){
+            const imgSrc = document.getElementById('img_src').value;
+            const imgTag = document.createElement('img');
+            imgTag.setAttribute('src',imgSrc);
+            imgTag.setAttribute('width','300');
+            imgTag.setAttribute('height','300');
+            document.getElementsByClassName('img_div')[0].appendChild(imgTag);
+        }
+    </script>
+
+</body>
+</html>

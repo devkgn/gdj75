@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM(2)</title>
+    <style>
+        .validate.pass{color: forestgreen;}
+        .validate.fail{color: crimson;font-weight: bolder;}
+    </style>
+</head>
+<body>
+    <h1>class속성 추가, 삭제</h1>
+    <label for="user_id">아이디 : </label>
+    <input type="text" id="user_id"><br>
+    <span id="user_id_vali" class="validate"></span><br>
+    <button onclick="duplicationId();">아이디 중복 검사</button>
+    <script>
+        const duplicationId = () =>{
+            const userId = document.getElementById('user_id').value;
+            const realId = 'user01';
+            if(userId === realId){
+                // 사용자 입력 아이디가 중복된다면
+                // 1. 중복되는 아이디입니다. 
+                // 2. fail class 추가
+                document.getElementById('user_id_vali').innerText = '중복된 아이디';
+                document.getElementById('user_id_vali').classList.add('fail');
+                document.getElementById('user_id_vali').classList.remove('pass');
+            } else{
+                document.getElementById('user_id_vali').innerText = '사용가능한 아이디';
+                document.getElementById('user_id_vali').classList.add('pass');
+                document.getElementById('user_id_vali').classList.remove('fail');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -75,5 +75,49 @@
             document.getElementById('ul_div').appendChild(ul);
         }
     </script>
+    <h2>생성된 태그를 원하는 위치에 추가</h2>
+    <style>
+        div#standard_div{
+            border: 1px red solid; width: 400px; height: 200px;
+        }
+    </style>
+    <button onclick="insertAdjacentTest();">추가</button>
+    <button onclick="changePosition();">위치 바꾸기</button>
+    <div id="standard_div">
+        <h1 id="origin" style="color: aquamarine;">판단용 h1</h1>
+    </div>
+    <script>
+        // 원래 있는 태그의 위치를 변경
+        const changePosition = function(){
+            const ori = document.getElementById('origin');
+            document.getElementById('standard_div').insertAdjacentElement('beforebegin',ori);
+        }
+
+        // 생성된 태그를 원하는 위치에 추가
+        const insertAdjacentTest = function(){
+            const h3 = document.createElement('h3');
+            const h3Text = document.createTextNode('지정태그앞');
+            h3.appendChild(h3Text);
+            const stanDiv = document.getElementById('standard_div');
+            stanDiv.insertAdjacentElement('beforebegin',h3);
+
+            const h2 = document.createElement('h2');
+            const h2Text = document.createTextNode('지정태그뒤(같은레벨)');
+            h2.appendChild(h2Text);
+            stanDiv.insertAdjacentElement('afterend',h2);
+
+            const img = document.createElement('img');
+            img.setAttribute('src','../img/d.png');
+            img.setAttribute('width','50');
+            img.setAttribute('height','50');
+            stanDiv.insertAdjacentElement('beforeend',img);
+
+            const img2 = document.createElement('img');
+            img2.setAttribute('src','../img/e.jpg');
+            img2.setAttribute('width','50');
+            img2.setAttribute('height','50');
+            stanDiv.insertAdjacentElement('afterbegin',img2);
+        }
+    </script>
 </body>
 </html>
