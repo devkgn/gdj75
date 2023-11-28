@@ -72,5 +72,100 @@
             this.appendChild(text);
         });
     </script>
+    <h2>key이벤트</h2>
+    <textarea id="text_write"></textarea>
+    <script>
+        // keydown : 모든 키보드 키
+        document.getElementById('text_write').onkeydown = function(event){
+            //https://www.toptal.com/developers/keycode
+            if(event.key === 'Backspace'){
+                let img = document.createElement('img');
+                img.setAttribute('src','../img/d.png');
+                img.setAttribute('width','100');
+                event.target.insertAdjacentElement('afterend',img);
+            }
+        }
+        // keypress : 입력 가능한 키
+        document.getElementById('text_write').onkeypress = function(){
+            if(event.code === 'KeyB'){
+                let img = document.createElement('img');
+                img.setAttribute('src','../img/d.png');
+                img.setAttribute('width','100');
+                event.target.insertAdjacentElement('afterend',img);
+            }
+        }
+        // key up
+        document.getElementById('text_write').onkeyup = function(){
+            let img = document.createElement('img');
+                img.setAttribute('src','../img/e.jpg');
+                img.setAttribute('width','100');
+                event.target.insertAdjacentElement('afterend',img);
+        }
+    </script>
+    <h2>input 태그 관련 이벤트</h2>
+    <input type="text" id="input_test" value="기본값">
+    <script>
+        document.querySelector('#input_test').addEventListener('focus',function(){
+            this.style.backgroundColor = 'crimson';
+        });
+        document.querySelector('#input_test').addEventListener('blur',function(){
+            this.style.backgroundColor = 'white';
+        });
+    </script>
+    <select id="select_text">
+        <option value="1">HTML</option>
+        <option value="2">CSS</option>
+    </select>
+    <script>
+        document.querySelector('#select_text').addEventListener('change',function(event){
+            console.log(event.target.value);
+        });
+    </script>
+    <form id="testFrm" style="border: 1px solid crimson;">
+        <input type="text" name="user_data">
+        <input type="submit" value="제출하기">
+    </form>
+    <script>
+        document.getElementById('testFrm').onsubmit = function(){
+            const val = document.querySelector('input[name=user_data]').value;
+            if(val.length < 4){
+                alert('데이터는 4글자 이상이어야 해요.');
+                return false;
+            } else{
+                return true;
+            }
+        }
+    </script>
+    <a id="hyper" href="https://www.naver.com">네이버</a>
+    <script>
+        document.getElementById('hyper').addEventListener('click',function(event){
+            event.preventDefault();
+        });
+    </script>
+    <h3>유효성 검사</h3>
+    <style>
+        .pw_vali{display: none;}
+        .pw_vali.pass{display:inline;color: green;}
+        .pw_vali.fail{display: inline;color: red;}
+    </style>   
+    <form id="joinForm">
+        <input type="password" placeholder="비밀번호" name="user_pw"><br>
+        <input type="password" placeholder="비밀번호 확인" name="user_pw_check"><br>
+        <span class="pw_vali"></span>
+        <input type="submit" value="회원가입">
+        <input type="reset" value="초기화">
+    </form>
+    <script>
+        // 1. blur이벤트 사용(비밀번호 확인)
+        // 2. event.target.value를 통해서 비밀번호와 비밀번호 확인 값 가져오기
+        // 3. 비밀번호와 비밀번호 확인 일치확인
+        // 4. 일치 -> pass 클래스 추가, X -> fail 클래스 추가 
+        // (절대 html 코드 수정하지 마세요. id, class 추가 불가능)
+    </script>
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
