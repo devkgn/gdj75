@@ -33,5 +33,43 @@
             }
         }
     </script>
+    <h1>지정태그 주변에 있는 태그 가져오기</h1>
+    <div id="searchTag">
+        <h2>얘는 h2에요~</h2>
+        <ul>
+            <li>html</li>
+            <li>css</li>
+            <li>javascript</li>
+        </ul>
+        <button id="search_btn">주변 조회</button>
+    </div>
+    <script>
+        document.getElementById('search_btn').onclick = function(){
+            const tar = this.parentElement;
+            let childrenEl = tar.children;
+            //console.log(childrenEl);
+            for(let i = 0 ; i < childrenEl.length ; i++){
+                if(childrenEl[i].tagName === 'H2'){
+                    childrenEl[i].style.backgroundColor = 'gold';
+                } else if (childrenEl[i].tagName === 'UL'){
+                    const childchild = childrenEl[i].children;
+                    childchild[0].style.backgroundColor = 'red';
+                    childchild[1].nextElementSibling.style.backgroundColor = 'orange';
+                    childchild[2].previousElementSibling.style.backgroundColor = 'green';
+                }
+            }
+        };
+    </script>
+    <h1>태그 제거</h1>
+    <button id="remove_tag_test">태그 제거</button>
+    <script>
+        document.getElementById('remove_tag_test').onclick = function(){
+            const parent = document.getElementById('searchTag');
+            const childEl = parent.children[1];
+            // console.log(childEl);
+            const lis = childEl.children;
+            lis[0].remove();
+        }
+    </script>
 </body>
 </html>

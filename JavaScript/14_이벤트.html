@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+</head>
+<body>
+    <h1>이벤트 설정 방식</h1>
+    <p onclick="inlineEvent(event);">인라인 방식</p>
+    <p id="old">고전 방식</p>
+    <p id="standard">표준 이벤트 방식</p>
+    <script>
+        function inlineEvent(event){
+            // 1. 태그에 호출구문에 event라고 매개변수 추가
+            // 2. 스크립트 안 함수에 event 받아준다. 
+            // 3. 매개변수명.target써서 this처럼 활용한다. 
+            // 4. 인라인방식은 this사용 불가
+            console.log(event.target);
+            console.log(event.target.innerText);
+            event.target.style.backgroundColor = 'gold';
+        }
+        document.getElementById('old').onclick = function(event){
+            // 1. 스크립트 안 익명함수에 매개변수 event 추가
+            // 2. event.target을 써서 this처럼 활용한다. 
+            // 3. 고전방식은 this도 사용 가능
+            console.log(this);
+            console.log(event.target);
+            console.log(event.target.innerText);
+        }
+        document.getElementById('old').onclick = (event) =>{
+
+        }
+        document.getElementById('standard').addEventListener('click',function(event){
+            console.log(this);
+            console.log(event.target);
+            console.log(event.target.innerText);
+        });
+        document.getElementById('standard').addEventListener('click',(event)=>{
+
+        });
+    </script>
+    <h2>이벤트 객체 활용</h2>
+    <input type="text" id="eventTest">
+    <script>
+        document.getElementById('eventTest').onkeyup = event =>{
+            if(event.key === 'Enter'){
+                alert('엔터 그만 눌러');
+            }
+        }
+    </script>
+    <style>
+        .event_test{
+            border: green 1px solid;
+            width: 200px; height: 200px;
+        }    
+    </style>
+    <h2>마우스 이벤트</h2>
+    <div class="event_test" id="mouse_test">
+
+    </div>
+    <script>
+        document.getElementById('mouse_test').addEventListener('dblclick',function(){
+            this.style.backgroundColor = 'gold';
+        });
+        document.getElementById('mouse_test').addEventListener('mouseenter',function(){
+            const text = document.createTextNode('들어갔따');
+            this.appendChild(text);
+        });
+        document.getElementById('mouse_test').addEventListener('mouseleave',function(){
+            const text = document.createTextNode('나갔따');
+            this.appendChild(text);
+        });
+    </script>
+</body>
+</html>
