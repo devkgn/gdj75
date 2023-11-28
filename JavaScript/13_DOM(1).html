@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <h2>텍스트 노드가 있는 태그 생성</h2>
+    <button onclick="addElement();">태그 추가</button>
+    <div id="tag_div">
+
+    </div>
+    <script>
+        function addElement(){
+            // 1. 요소 노드 생성
+            const pTag = document.createElement('p');
+            // 2. 텍스트 노드 생성
+            const pText = document.createTextNode('Hello');
+            // 3. 요소 노드에 텍스트 노드 추가
+            pTag.appendChild(pText);
+            // 4. div에 완성된 태그 추가
+            document.getElementById('tag_div').appendChild(pTag);
+        }
+    </script>
+    <h2>텍스트 노드가 없는 태그 생성</h2>
+    <button onclick="createImg();">이미지 추가</button>
+    <div id="img_div">
+
+    </div>
+    <!-- <img src="../img/d.png"> -->
+    <script>
+        let createImg = function(){
+            let imgTag = document.createElement('img');
+            imgTag.setAttribute('src','../img/d.png');
+            imgTag.setAttribute('alt','공룡그림');
+            imgTag.setAttribute('width','200');
+            document.getElementById('img_div').appendChild(imgTag);
+        }
+    </script>
+    <h2>구조가 있는 태그 생성</h2>
+    <h3>기준</h3>
+    <ul>
+        <li>수박</li>
+        <li>딸기</li>
+        <li>레몬</li>
+    </ul>
+    <button onclick="createList();">목록태그 생성</button>
+    <div id="ul_div">
+
+    </div>
+    <script>
+        const createList = () =>{
+            // const li1 = document.createElement('li');
+            // const text1 = document.createTextNode('수박');
+            // li1.appendChild(text1);
+            // const li2 = document.createElement('li');
+            // const text2 = document.createTextNode('딸기');
+            // li2.appendChild(text2);
+
+            // const ul = document.createElement('ul');
+            // ul.appendChild(li1);
+            // ul.appendChild(li2);
+
+            // document.getElementById('ul_div').appendChild(ul);
+
+            const arr = ['수박','딸기','레몬'];
+            const ul = document.createElement('ul');
+            for(let i = 0 ; i< arr.length ; i++){
+                const li = document.createElement('li');
+                const text = document.createTextNode(arr[i]);
+                li.appendChild(text);
+                ul.appendChild(li);
+            }
+            document.getElementById('ul_div').appendChild(ul);
+        }
+    </script>
+</body>
+</html>
