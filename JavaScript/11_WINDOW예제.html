@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WINDOW예제</title>
+</head>
+<body>
+    <h1>예제 1</h1>
+    <span id="stop_watch">60</span><span> 초</span>
+    <p>다음 중 프론트엔드 개발자가 다루는 언어가 아닌 것은?</p>
+    <select id="answer">
+        <option>선택하기</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select>
+    <ol>
+        <li>CSS</li>
+        <li>HTML</li>
+        <li>JavaScript</li>
+        <li>Java</li>
+    </ol>
+    <button onclick="startTest();">시작</button>
+    <button onclick="endTest();">제출</button>
+    <script>
+        let clocking;
+        // 시작 버튼을 눌렀을때 어떤 동작이 이루어져야 하는가?
+        // 1. 스탑워치가 동작
+        // 2. 경과시간을 화면에 나타나야함.
+        // 3. 60초가 만료됐을때 시험을 종료
+        let startTest = () =>{
+            let fullTime = 60;
+            clocking = setInterval(function(){
+                fullTime--;
+                if(fullTime === 0){
+                    clearInterval(clocking);
+                    alert('시험 시간이 종료되었습니다.');
+                }
+                document.getElementById('stop_watch').innerText = fullTime;
+            },1000);
+        }
+        // 제출 버튼을 눌렀을때 어떤 동작이 이루어져야 하는가?
+        // 1. 사용자가 선택한 값과 문제의 정답이 일치하는지 확인
+        // -> 사용자 선택 값, 문제의 정답
+        // 2. 사용자가 오답 혹은 정답을 클릭했을때 alert
+        // 3. 제출 눌렀을때 clearInterval
+        let endTest = () =>{
+            const answer = Number(document.getElementById('answer').value);
+            if(answer === 4){
+                alert('정답입니다.');
+                clearInterval(clocking);
+            }else{
+                alert('오답입니다.');
+            }
+        }
+    </script>
+</body>
+</html>

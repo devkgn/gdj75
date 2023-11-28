@@ -6,6 +6,93 @@
     <title>내장객체예제(2)</title>
 </head>
 <body>
-    
+    <h1>로또 번호 출력하기</h1>
+    <p>
+        1~45 사이의 숫자중에서 랜덤값 6개 뽑기<br>
+        * 숫자값 중복 불가<br>
+        * 오름차순 정렬<br>
+    </p>
+    <button onclick="lottoNum();">로또</button>
+    <div id="lotto_result">
+
+    </div>
+    <script>
+        let lottoNum = function(){
+            // 1. 6개의 숫자 -> 배열
+            // 2. 숫자들이 중복되면X -> indexOf
+            // 3. 오름차순 정렬 -> sort
+            document.getElementById('lotto_result').innerHTML = '';
+            let lotto = [];
+            // 4. 6번 반복으로 제약X -> while
+            // for(let i = 0 ; i < 6 ; i++){
+            //     let num = Math.floor(Math.random()*45 +1);
+            //     if(lotto.indexOf(num) === -1){
+            //         lotto.push(num);
+            //     }
+            // }
+            // console.log(lotto);
+            while(lotto.length < 6){
+                let num = Math.floor(Math.random()*45 +1);
+                if(lotto.indexOf(num) === -1){
+                    lotto.push(num);
+                }
+            }
+            //console.log(lotto);
+            // 5. 오름차순 정렬
+            lotto = lotto.sort(function(a,b){
+                return a-b;
+            })
+            //console.log(lotto);
+            // 6. div에 결과 출력
+            // document.getElementById('lotto_result').innerHTML = lotto;
+            // 7. 이쁘게 출력
+            for(let j = 0 ; j < lotto.length ; j++){
+                document.getElementById('lotto_result').innerHTML += 
+                lotto[j]+'<br>';
+            }
+        }
+    </script>
+    <h1>전자동 시계 만들기</h1>
+    <style>
+    #clock{background-color: white;}
+        #clock > #content{ display: flex; flex-direction: row;
+                        align-items: center; flex-grow: 1;
+                        flex-wrap: wrap; flex-basis: 30%;
+        }
+            #clock > #content > .item{ color: black; width: 16%;
+                                        height: 84vh; text-align: center;
+                                        line-height: 84vh; margin: 1%;
+                                        font-size: 25rem; font-weight: bolder;
+            }
+        #clock > #top{ color: black; height: 10vh; font-size: 5rem; }
+    </style>
+    <div id="clock">
+        <div id="top"></div>
+        <div id="content">
+            <div class="item" id="hour"></div>
+            <div class="item">:</div>
+            <div class="item" id="minute"></div>
+            <div class="item">:</div>
+            <div class="item" id="second"></div>
+        </div>
+    </div>
+    <script>
+        window.onload = function(){
+            let today = new Date();
+            let year = today.getFullYear();
+            let month = today.getMonth() +1;
+            let day = today.getDate();
+            document.getElementById('top').innerHTML = year + '-'+month+'-'+day;
+        };
+        setInterval(function(){
+            let today = new Date();
+            let hour = today.getHours();
+            let min = today.getMinutes();
+            let second = today.getSeconds();
+            document.getElementById('hour').innerHTML = hour;
+            document.getElementById('minute').innerHTML = min;
+            document.getElementById('second').innerHTML = second;
+        },1000);
+    </script>
 </body>
 </html>
