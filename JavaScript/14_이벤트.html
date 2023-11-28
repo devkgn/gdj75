@@ -95,11 +95,12 @@
             }
         }
         // key up
-        document.getElementById('text_write').onkeyup = function(){
-            let img = document.createElement('img');
-                img.setAttribute('src','../img/e.jpg');
-                img.setAttribute('width','100');
-                event.target.insertAdjacentElement('afterend',img);
+        document.getElementById('text_write').onkeyup = function(event){
+            // let img = document.createElement('img');
+            //     img.setAttribute('src','../img/e.jpg');
+            //     img.setAttribute('width','100');
+            //     event.target.insertAdjacentElement('afterend',img);
+            if(event.key === 'CapsLock') alert('대문자 변환!');
         }
     </script>
     <h2>input 태그 관련 이벤트</h2>
@@ -161,6 +162,17 @@
         // 3. 비밀번호와 비밀번호 확인 일치확인
         // 4. 일치 -> pass 클래스 추가, X -> fail 클래스 추가 
         // (절대 html 코드 수정하지 마세요. id, class 추가 불가능)
+        document.querySelector('input[name=user_pw_check]').addEventListener('blur',function(event){
+            const pwCheck = event.target.value;
+            const pw = event.target.previousElementSibling.previousElementSibling.value;
+            if(pw === pwCheck){
+                event.target.nextElementSibling.innerHTML = '비밀번호가 일치합니다.';
+                event.target.nextElementSibling.classList.add('pass');
+                event.target.nextElementSibling.classList.remove('fail');
+            } else{
+
+            }    
+        })
     </script>
 
 
