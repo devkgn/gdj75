@@ -7,6 +7,128 @@
     <script type="text/javascript" src="jquery-3.7.1.js"></script>
 </head>
 <body>
+    <h1>Filtering 메소드</h1>
+    <h4>1</h4>
+    <h4 class="test">2</h4>
+    <h4 class="test">3</h4>
+    <h4>4</h4>
+    <script>
+        $(document).ready(function(){
+            // 요소선택 :first와 요소탐색 first()의 차이
+            $('h4:first').css('color','green');
+            $('h4').first().css('fontSize','2rem');
+            const h4s = $('h4');
+            h4s.each(function(index,item){
+                if($(item).text() === '2'){
+                    $(item).css('color','blue');
+                } else{
+                    $(item).css('backgroundColor','orange');
+                }
+            });
+            // 필터링 메소드
+            $('h4').first().css('fontWeight','lighter');
+            $('h4').last().css('textDecoration','underline');
+            $('h4').eq(2).css('color','gold');
+            $('h4').filter('.test').css('fontStyle','italic');
+            $('h4').filter(function(index,item){
+                return $(item).text().includes('2');
+            }).css('backgroundColor','hotpink');
+            $('h4').not('.test').css('textDecoration','line-through');
+        })
+    </script>
+    <h1>Ancestor메소드</h1>
+    <div id="parentcontainer">
+        <div>
+            div
+            <ul>
+                ul
+                <li>
+                    li
+                    <span>span</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('span').parent().css('border','2px solid crimson');
+            $('li').parent().css('border','2px dashed blue');
+            $('li').parents().css('backgroundColor','ivory');
+            $('span').parentsUntil('div').css('color','green');
+        })
+    </script>
+    <h1>Decendants 메소드</h1>
+    <div id="childcontainer">
+        <table>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>
+                    <button>버튼</button>
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+            </tr>
+        </table>
+        <p>
+            <span>p</span>
+            태그
+        </p>
+        <img src="../img/d.png" width="200" height="200">
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('#childcontainer').children().css('border','2px solid green');
+            $('#childcontainer').children().children('span').css('color','aqua');
+            $('#childcontainer').find('img').css('borderRadius','50px');
+            $('#childcontainer').find('td').css('color','magenta');
+        })
+    </script>
+    <h1>Sideways 메소드</h1>
+    <div id="brocontainer">
+        <p>p</p>
+        <h1>h1</h1>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <p>p</p>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('h3').siblings().css('border','3px solid green');
+            $('h3').siblings('p').css('textDecoration','line-through');
 
+            $('h2').next().css('color','blue');
+            $('h2').nextAll().css('backgroundColor','gold');
+            $('h2').nextUntil('p').css('fontSize','3em');
+        })
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
