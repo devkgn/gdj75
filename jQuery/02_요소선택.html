@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소 선택</title>
+    <script type="text/javascript" src="jquery-3.7.1.js"></script>
+</head>
+<body>
+    <h1>아이디 선택자</h1>
+    <h2 id="id1">JavaScript 방식</h2>
+    <h2 id="id2">jQuery 방식</h2>
+    <script>
+        $(document).ready(function(){
+            // 순수 자바스크립트 코드로 작성
+            document.getElementById('id1');
+            document.getElementById('id1').style.color = 'crimson';
+            document.getElementById('id1').innerHTML = '이름변경1';
+            // 제이쿼리로 작성
+            $('#id2');
+            $('#id2').css('color','gold');
+            $('#id2').html('이름변경2');
+        })
+    </script>
+    <h1>클래스 선택자</h1>
+    <h2 class="item">클래스1</h2>
+    <span class="item select">클래스2</span>
+    <div class="item select">클래스3</div>
+    <script>
+        $(document).ready(function(){
+            // 순수 자바스크립트 코드로 작성
+            const items = document.getElementsByClassName('item');
+            for(let i = 0 ; i < items.length ;i++){
+                items[i].style.color = 'aqua';
+                items[i].onclick = function(){
+                    console.log('순수 자바스크립트');
+                }
+            }
+            // 제이쿼리로 작성
+            $('.select').css('backgroundColor','pink');
+            $('.select').click(function(){
+                alert('제이쿼리 짱..?');
+            })
+        })
+    </script>
+    <h1>태그 선택자</h1>
+    <p>HTML</p>
+    <p>CSS</p>
+
+    <h4>JavaScript</h4>
+    <h4>jQuery</h4>
+    <script>
+        $(document).ready(function(){
+            // 순수 자바스크립트
+            const pEl = document.getElementsByTagName('p');
+            for(let i = 0 ; i < pEl.length ; i++){
+                pEl[i].style.color = 'coral';
+            }
+            // 제이쿼리
+            $('h4').css('color','green');
+        })
+    </script>
+    <h1>자손, 후손 선택자</h1>
+    <div>
+        <ul>
+            div의 자손1
+            <li>div의 후손이면서 ul의 자손1</li>
+            <li>div의 후손이면서 ul의 자손2</li>
+            <li>div의 후손이면서 ul의 자손3</li>
+            <li>div의 후손이면서 ul의 자손4</li>
+            <li>
+                <h3>div와 ul의 후손이면서 li의 자손1</h3>
+            </li>
+        </ul>
+        <h3>div의 자손2</h3>
+        <h4>div의 자손3</h4>
+    </div>
+    <script>
+        $(document).ready(function(){
+            // div의 2번째 자손 h3
+            document.getElementsByTagName('div')[1].children[1].style.color='red';
+            $('div > h3').css('backgroundColor','blue');
+            // div/ul의 후손이면서 li의 자손 h3
+            document.getElementsByTagName('div')[1].children[0].children[4].children[0].style.color="aqua";
+            $('div>ul h3').css('backgroundColor','grey');
+        })
+    </script>
+    <h1>
+        속성 선택자
+    </h1>
+    <input type="text" value="속성 선택자 테스트">
+    <a href="https://www.gdu.co.kr">구디아카데미</a>
+    <script>
+        $(document).ready(function(){
+            const ele = document.getElementsByTagName('input');
+            for(let i = 0 ; i < ele.length ; i++){
+                if(ele[i].getAttribute('type')==='text'){
+                    ele[i].style.color="purple";
+                }
+            }
+            $('input[type=text]').css('background','yellow');
+            $('a[href="https://www.gdu.co.kr"]').css('textDecoration','none');
+        })
+    </script>
+    <h1>상태 선택자</h1>
+    <input type="checkbox" name="cake" id="straw">
+    <label for="straw">딸기</label>
+    <input type="checkbox" name="cake" id="choco">
+    <label for="choco">초코</label>
+    <script>
+        $(function(){
+            $('input[name=cake]').change(function(){
+                $('input[name=cake]:checked').css('width','50px');
+            });
+        })
+    </script><br>
+    <select name="menu">
+        <option value="1">짜장</option>
+        <option value="2">짬뽕</option>
+        <option value="3">울면</option>
+    </select>
+    <button onclick="test();">주문하기</button>
+    <div id="result"></div>
+    <script>
+        function test(){
+            $('#result').html($('option:selected').html());
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
