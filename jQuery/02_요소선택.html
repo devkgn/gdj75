@@ -178,21 +178,66 @@
             $('#table_style>tbody>tr:last>td:gt(2)').css('border','3px solid blue');
         }
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <style>
+        div#first, div#second{
+            width: 100px; height: 100px;
+            background-color: black;
+        }
+    </style>
+    <h1>문제1. 색상 선택후 변경 버튼을 클릭하면 색상이 변경되도록 만들어보세요.</h1>
+    <div id="first"></div>
+    <input type="color" id="palette">
+    <input type="button" onclick="colorChange();" value="변경">
+    <script>
+        function colorChange(){
+            $('#first').css('backgroundColor',$('#palette').val());
+        }
+    </script>
+    <h1>문제2. 버튼에 따른 크기 조절이 가능하도록 만들어 보시오.</h1>
+    <div id="second"></div>
+    <input type="button" onclick="changeSize(50);" value="50x50">
+    <input type="button" onclick="changeSize(100);" value="원본(100x100)">
+    <input type="button" onclick="changeSize(200);" value="200x200">
+    <script>
+        function changeSize(size){
+            //$('#second').css({'width':size+'px','height':size+'px'});
+            $('#second').css('width',size+'px').css('height',size+'px');
+        }
+    </script>
+    <h1>HTML 태그에 접근 테스트</h1>
+    <style>
+        #printDiv{
+            border: 1px solid lavender;
+            background-color: cornsilk;
+            width: 400px;
+            height: 180px;
+        }
+    </style>
+    <p>단, 구매자는 태그 이름으로 접근, 상품명은 아이디로 접근, 가격은 name값으로 접근할 것</p>
+    <label for="name">구매자 : </label>
+    <input type="text" id="name" placeholder="구매자의 이름을 입력하세요">
+    <br><br>
+    <label for="product">상품명 : </label>
+    <input type="text" id="product" placeholder="구매 상품명을 입력하세요">
+    <br><br>
+    <label for="price">가격 : </label>
+    <input type="text" name="price" id="price" placeholder="구매 가격을 입력하세요">
+    <br><br>
+    <input type="button" value="입력값 출력하기" onclick="inputPrint();">
+    <br><br>
+    <div id="printDiv"></div>
+    <script>
+        function inputPrint(){
+            // let txt = '구매자 : '+$('input:first').val()+'<br>';
+            // txt += '상품명 : '+$('#product').val()+'<br>';
+            // txt += '가격 : '+$('input[name=price]').val()+'<br>';
+            // $('#printDiv').html(txt);
+            
+            $('#printDiv').append('구매자 : '+$('input:first').val()+'<br>');
+            $('#printDiv').append('상품명 : '+$('#product').val()+'<br>');
+            $('#printDiv').append('가격 : '+$('input[name=price]').val()+'<br>');
+        }
+    </script>    
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
