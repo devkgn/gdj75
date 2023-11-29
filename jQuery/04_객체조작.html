@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 조작</title>
+    <script type="text/javascript" src="jquery-3.7.1.js"></script>
+</head>
+<body>
+    <script>
+        $(function(){
+            // 배열
+            const arr = ['나','비','야'];
+            for(let i = 0 ; i < arr.length ; i++){
+                console.log('(1)'+arr[i]);
+            }
+            for(let index in arr){
+                console.log('(2)'+arr[index]);
+            }
+            $.each(arr,function(index,item){
+                console.log('(3)'+item+":"+index);
+            })
+            // 객체
+            const student = {
+                name :'김철수',
+                age : 20,
+                address :'서울시'
+            };
+            for(let key in student){
+                console.log('(1)'+student[key]);
+            }
+            $.each(student, function(key,value){
+                console.log('(2)'+key+":"+value);
+            });
+        })
+    </script>
+    <ul id="container"> 
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <button onclick="changeElement();">변경</button>
+    <script>
+        const changeElement = () =>{
+            $('#container>li').each(function(index,item){
+                // console.log(item);
+                // item.style.backgroundColor = 'gold';
+                // $(item).css('color','orange');
+                $(this).css('textDecoration','line-through');
+                if(index % 2 === 0){
+                    $(item).css('color','gold');
+                } else{
+                    $(item).css('color','green');
+                }
+            })
+        }
+    </script>
+</body>
+</html>

@@ -110,6 +110,20 @@
             $('h2').next().css('color','blue');
             $('h2').nextAll().css('backgroundColor','gold');
             $('h2').nextUntil('p').css('fontSize','3em');
+
+            $('h2').prev().css('backgroundColor','pink');
+            $('h2').prevAll().css('color','crimson');
+            $('h2').prevUntil('p').css('fontStyle','italic');
+
+            console.log($('#brocontainer > * ').is('h4'));
+            console.log($('#brocontainer > *').is('h2'));
+
+            // is 함수 활용 방법
+            $('#brocontainer > *').click(function(){
+                if($(this).is('h2')){
+                    console.log($(this).text());
+                }
+            })
         })
     </script>
 
