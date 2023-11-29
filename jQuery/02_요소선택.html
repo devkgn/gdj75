@@ -126,8 +126,58 @@
             $('#result').html($('option:selected').html());
         }
     </script>
-
-
+    <button>활성버튼</button>
+    <button disabled>비활성버튼</button>
+    <script>
+        $(function(){
+            $('button:enabled').css('backgroundColor','yellowgreen');
+            $('button:disabled').css('backgroundColor','orangered');
+        })
+    </script>
+    <table id="table_style" border="1">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+        </tr>
+    </table>
+    <button onclick="changeTableBack();">배경</button>
+    <button onclick="changeTableFont();">폰트</button>
+    <button onclick="changeTableDesign();">디자인</button>
+    <script>
+        const changeTableBack = () =>{
+            $('#table_style>tbody>tr:first').css('backgroundColor','#fcba03');
+            $('#table_style>tbody>tr:last').css('backgroundColor','#4287f5');
+        }
+        const changeTableFont = () =>{
+            $('#table_style>tbody>tr>td:odd').css('fontSize','2rem');
+            $('#table_style>tbody>tr>td:even').css('color','#fc5e03');
+            $('#table_style>tbody>tr>td:eq(2)').css('width','200px');
+        }
+        const changeTableDesign = () =>{
+            $('#table_style>tbody>tr:first>td:lt(2)').css('border','3px solid red');
+            $('#table_style>tbody>tr:last>td:gt(2)').css('border','3px solid blue');
+        }
+    </script>
 
 
 
