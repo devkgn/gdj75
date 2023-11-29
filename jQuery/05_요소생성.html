@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소생성</title>
+    <script type="text/javascript" src="jquery-3.7.1.js"></script>
+</head>
+<body>
+    <h1>html()</h1>
+    <div id="test1">
+        <a href="#">구디</a>
+    </div>
+    <button id="btn1">가져오기</button>
+    <button id="btn2">바꾸기</button>
+    <script>
+        $(function(){
+            $('#btn1').click(function(){
+                console.log($('#test1').html());
+            })
+            $('#btn2').click(function(){
+                $('#test1').html('<p>바꾸기<p>');
+            })
+        })
+    </script>
+    <h1>text()</h1>
+    <div id="test2">
+        <a href="#">하이퍼링크</a>
+    </div>
+    <button id="btn3">가져오기</button>
+    <button id="btn4">바꾸기</button>
+    <script>
+        $(document).ready(function(){
+            $('#btn3').click(function(){
+                console.log($('#test2').text());
+            })
+            $('#btn4').click(function(){
+                $('#test2').text('text로 바꿈');
+                $('<button>').text('버튼').appendTo('#test2');
+            })
+        })
+    </script>
+    <h1>자식 태그 추가</h1>
+    <button onclick="addChildren();">자식 추가</button>
+    <div id="container3" style="border: 1px solid red;">
+        <h3>h3</h3>
+    </div>
+    <script>
+        const addChildren = () =>{
+            // 1. append
+            const p = $('<p>').text(new Date());
+            //$('#container3').append(p);
+            // 2. appendTo
+            //p.appendTo($('#container3'));
+            // 3. prepend
+            //$('#container3').prepend(p);
+            // 4. prependTo
+            p.prependTo($('#container3'));
+        }
+    </script>
+    <h1>형제 태그 추가</h1>
+    <button onclick="addSibling();"> 
+        형제 추가
+    </button>
+    <div id="container4" style="border: 1px solid green;">
+        <h3>h3</h3>
+    </div>
+    <script>
+        const addSibling = () =>{
+
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
