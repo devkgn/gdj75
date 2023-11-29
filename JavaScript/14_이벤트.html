@@ -133,7 +133,7 @@
                 alert('데이터는 4글자 이상이어야 해요.');
                 return false;
             } else{
-                return true;
+               return true;
             }
         }
     </script>
@@ -162,17 +162,20 @@
         // 3. 비밀번호와 비밀번호 확인 일치확인
         // 4. 일치 -> pass 클래스 추가, X -> fail 클래스 추가 
         // (절대 html 코드 수정하지 마세요. id, class 추가 불가능)
-        document.querySelector('input[name=user_pw_check]').addEventListener('blur',function(event){
+        document.getElementsByName('user_pw_check')[0].addEventListener('blur',function(event){
             const pwCheck = event.target.value;
             const pw = event.target.previousElementSibling.previousElementSibling.value;
+            const pwVali = event.target.nextElementSibling.nextElementSibling;
             if(pw === pwCheck){
-                event.target.nextElementSibling.innerHTML = '비밀번호가 일치합니다.';
-                event.target.nextElementSibling.classList.add('pass');
-                event.target.nextElementSibling.classList.remove('fail');
+                pwVali.innerHTML = '비밀번호가 일치합니다.';
+                pwVali.classList.add('pass');
+                pwVali.classList.remove('fali');
             } else{
-
-            }    
-        })
+                pwVali.innerHTML = '비밀번호가 일치하지 않습니다.';
+                pwVali.classList.add('fail');
+                pwVali.classList.remove('pass');
+            }
+        });
     </script>
 
 

@@ -42,6 +42,55 @@
             document.getElementsByClassName('img_div')[0].appendChild(imgTag);
         }
     </script>
-
+    <h3>예제3</h3>
+    <ul id="target_ul">
+        <li>짜장면</li>
+        <li>볶음밥</li>
+        <li>짬뽕</li>
+    </ul>
+    <input name="food" type="text" placeholder="추가할 메뉴 작성">
+    <input type="button" value="추가" onclick="addMenu();">
+    <script>
+        const addMenu = function(){
+            const food = document.getElementsByName('food')[0].value;
+            const li = document.createElement('li');
+            const text = document.createTextNode(food);
+            li.appendChild(text);
+            const ul = document.querySelector('#target_ul');
+            ul.appendChild(li);
+            // 메뉴 추가가 완료된 후 사용자가 입력한 값이 사라지도록..
+            document.getElementsByName('food')[0].value='';
+        }
+    </script>
+    <h3>예제4</h3>
+    <p>
+        사용자로부터 row(행)의 개수를 입력받은 후, <br>
+        버튼을 클릭하면 table_div에 테이블을 추가하세요.
+    </p>
+    <input type="number" name="row" placeholder="row(행)의 개수">
+    <input type="button" onclick="addRow();" value="출력">
+    <div id="row_add_div"></div>
+    <script>
+        let addNum =1;
+        const addRow = () =>{
+            const r = document.getElementsByName('row')[0].value;
+            const t = document.querySelector('#row_add_div>table');
+            if(!t){
+                const table = document.createElement('table');
+                document.querySelector('#row_add_div').appendChild(table);
+            }
+            for(let i = 0 ; i < r ;i++){
+                const tr = document.createElement('tr');
+                for(let j = 0 ; j < 4 ; j++){
+                    const td= document.createElement('td');
+                    const text = document.createTextNode(addNum++);
+                    td.style.border = '1px solid black';
+                    td.appendChild(text);
+                    tr.appendChild(td);
+                }
+                document.querySelector('#row_add_div>table').appendChild(tr);
+            }
+        }
+    </script>
 </body>
 </html>
