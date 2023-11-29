@@ -67,9 +67,36 @@
     </div>
     <script>
         const addSibling = () =>{
-
+            const h4 = $('<h4>').text(new Date());
+            // $('#container4').before(h4);
+            // h4.insertBefore($('#container4'));
+            const img = $('<img>').attr('src','../img/d.png').attr('width','100');
+            // $('#container4').after(img);
+            img.insertAfter($('#container4'));
         }
     </script>
+    <h1>태그 이동</h1>
+    <div id="container5">
+        <p>p태그</p>
+        <h4>h4태그</h4>
+    </div>
+    <button onclick="changePosition();">이동</button>
+    <script>
+        const changePosition = () =>{
+            // $('div#container4').append($('#container5>*:last'));
+            $('#container5>*:last').appendTo($('div#container4'));
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
 
 
 
