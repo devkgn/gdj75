@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 개요</title>
+    <!-- CDN방식 -->
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js" 
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
+    crossorigin="anonymous"></script> -->
+    <!-- 파일 다운로드 오프라인 -->
+    <script type="text/javascript" src="jquery-3.7.1.js"></script>
+</head>
+<body>
+    <p>클릭</p>
+    <script>
+        // jquery를 쓸때는 반드시 document.ready 또는 $ 사용
+        window.onload = function(){
+            console.log('window.onload 구문1');
+        }
+        $(document).ready(function(){
+            console.log('window.onload 구문2');
+        })
+        $(function(){
+            console.log('window.onload 구문3');
+        })
+        // document.ready 사용해야하는 이유
+        $('p').click(function(){
+            alert('테스트1');
+        });
+        $(document).ready(function(){
+            $('p').click(function(){
+                alert('테스트2');
+            });
+        });
+    </script>
+    <p>테스트</p>
+</body>
+</html>
