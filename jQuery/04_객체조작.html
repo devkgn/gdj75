@@ -55,5 +55,45 @@
             })
         }
     </script>
+    <h2>출석부</h2>
+    <p>
+        아래 학생 정보가 담겨있는 배열 arr이 있다.<br>
+        버튼을 클릭하면 배열을 each문을 통해 아래 테이블에 출력하세요<br>
+        const arr = [
+            {name:'김철수',age : 20,address:'서울'},
+            {name:'이영희',age:30,address:'부산'},
+            {name:'최철수',age:40,address:'광주'}
+        ];
+    </p>
+    <button id="btn">출력</button>
+    <table id="tbl" border="1">
+        <tr>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+        </tr>
+    </table>
+    <script>
+        $(function(){
+            $('#btn').click(function(){
+                const arr = [
+                    {name:'김철수',age : 20,address:'서울'},
+                    {name:'이영희',age:30,address:'부산'},
+                    {name:'최철수',age:40,address:'광주'}
+                ];
+                $.each(arr,function(index,item){
+                    // tr 시작
+                    let txt = '<tr>';
+                    $.each(item,function(key,value){
+                        // td 생성
+                        txt += '<td>'+value+'</td>';
+                    });
+                    // tr 종료
+                    txt += '</tr>';
+                    $('#tbl').append(txt);
+                });
+            })
+        })
+    </script>
 </body>
 </html>

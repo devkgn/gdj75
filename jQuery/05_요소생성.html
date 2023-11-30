@@ -87,12 +87,78 @@
             $('#container5>*:last').appendTo($('div#container4'));
         }
     </script>
+    <h1>예제1</h1>
+    <input type="text" name="path">
+    <button onclick="addImg();">이미지 추가</button>
+    <button onclick="changeImg();">위치 변경</button>
+    <div id="imgcontainer" style="border: 3px solid sandybrown;"></div>
+    <script>
+        let count = 0;
+        function addImg(){
+            if(count < 3){
+                const imgPath = $('input[name=path]').val();
+                const img = $('<img>').attr({'src':imgPath,'width':200,'height':200});
+                $('#imgcontainer').append(img);
+            }else{
+                alert('3개까지만 추가 가능합니다.');
+            }
+            count++;
+        }
+        // 인덱스 0 -> 1 , 1 -> 2, 2 -> 0
+        function changeImg(){
+            $('#imgcontainer>img:last').prependTo($('#imgcontainer'));
+        }
+    </script>
+    <h1>복제하기</h1>
+    <button onclick="cloneTest();">복제</button>
+    <div id="container6">
+        <div id="item1" class="item">
+            <span>Hello</span>
+        </div>
+    </div>
+    <script>
+        let num = 2;
+        const cloneTest = () => {
+            $('#container6>#item1').clone(false).attr('id','item'+num++)
+                .appendTo($('#container6'));
+        }
+        $(function(){
+            $('.item').click(function(){
+                console.log(1);
+            })
+        })
+    </script>
+    <h1>요소 제거</h1>
+    <div id="remove_test">
+        <div id="item2" class="item">
+            <span>Hi</span>
+        </div>
+        <h1>테스트</h1>
+    </div>
+    <button id="remove_btn">잘라내기</button>
+    <button id="detach_btn">잘라내기2</button>
+    <button id="empty_btn">비워주기</button>
+    <div id="remove_result">
 
-
-
-
-
-
+    </div>
+    <script>
+        $(function(){
+            $('#item2').click(function(){
+                console.log('테스트');
+            })
+            $('#remove_btn').click(function(){
+                const cutEl = $('#item2').remove();
+                $('#remove_result').append(cutEl);
+            });
+            $('#detach_btn').click(function(){
+                const cutEl = $('#item2').detach();
+                $('#remove_result').append(cutEl);
+            })
+            $("#empty_btn").click(function(){
+                $('#remove_result').empty();
+            })
+        })
+    </script>
 
 
 
