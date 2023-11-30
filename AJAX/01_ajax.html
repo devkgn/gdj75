@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax(1)</title>
+</head>
+<body>
+    <script>
+        const req = new XMLHttpRequest();
+        req.onreadystatechange = function(){
+            // readyState 1 : open 메소드 호출 후
+            // readyState 2 : 보낸 요청에 대해서 응답을 수신한 후(헤더)
+            // readyState 3 : 바디
+            // readyState 4 : 응답 완료
+            console.log(this.readyState, this.status);
+            if(this.readyState == 4 && this.status == 200){
+                console.log(this.response);
+            }
+        }
+        req.open('GET','data.txt');
+        req.send();
+    </script>
+</body>
+</html>
