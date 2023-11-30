@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <script type="text/javascript" src="jquery-3.7.1.js"></script>
+</head>
+<body>
+    <h1>on 메소드</h1>
+    <div id="container">
+        <ul>
+            <li>html</li>
+            <li>css</li>
+            <li>javascript</li>
+        </ul>
+        <h3>h3이벤트</h3>
+    </div>
+    <script>
+        $(function(){
+            $('#container>ul>li').on('mouseenter',function(event){
+                console.log($(event.target).text());
+            });
+            $('#container>h3').on({
+                'mouseenter':function(){},
+                'mouseleave' :function(){},
+                'dblclick' : () =>{}
+            });
+        })
+    </script>
+</body>
+</html>
