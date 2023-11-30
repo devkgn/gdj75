@@ -22,11 +22,136 @@
                 console.log($(event.target).text());
             });
             $('#container>h3').on({
-                'mouseenter':function(){},
-                'mouseleave' :function(){},
-                'dblclick' : () =>{}
+                'mouseenter':function(event){
+                    $(event.target).css('backgroundColor','crimson');
+                },
+                'mouseleave' :function(event){
+                    $(event.target).css('backgroundColor','white');
+                },
+                'dblclick' : (event) =>{
+                    $(event.target).css('fontSize','50px');
+                }
             });
         })
     </script>
+    <h3>일회용 이벤트</h3>
+    <button id="btn">쿠폰 다운로드</button>
+    <script>
+        $(document).ready(function(){
+            $('#btn').one('click',function(){
+                alert('버튼 눌렀다.');
+            })
+        })
+    </script>
+    <h1>off 메소드</h1>
+    <button class="eventOff">버튼</button>
+    <script>
+        $(function(){
+            let count = 0;
+            $('.eventOff').click(function(event){
+                if(count++ < 5){
+                    alert("버튼 클릭!");
+                } else{
+                    $(event.target).off('click');
+                }
+            })
+        })
+    </script>
+    <h2>혹시 모를 상황에 대비하여 on전에 off쓰기</h2>
+    <button class="eventOff">버튼</button>
+    <script>
+        $(function(){
+            $('.eventOff').off('click');
+            $('.eventOff').on('click',function(){
+                $(this).css('backgroundColor','crimson');
+            })
+        })
+    </script>
+    <h2>간편 이벤트 설정</h2>
+    <div id="eventContainer">
+        <form name="eventFrm">
+            <label for="title">제목</label>
+            <input type="text" name="title" id="title"><br>
+            <label for="type">종류</label>
+            <select name="type" id="type">
+                <option value="1">공지</option>
+                <option value="2">자유</option>
+                <option value="3">비밀</option>
+            </select><br>
+            <label for="content">내용</label>
+            <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            <span></span><br>
+            <label for="password">비밀번호</label>
+            <input type="password" id="password">
+        </form>
+    </div>
+    <script>
+        $(function(){
+            $('#eventContainer>form>input#title').focus(function(event){
+                $(event.target).css({
+                    'backgroundColor':'green',
+                    'color':'gold'
+                });
+            });
+            $("#eventContainer>form>select#type").change(function(event){
+                alert($(event.target).val());
+            });
+            $('#eventContainer>form>textarea#content').keyup(function(event){
+                const strVal = $(event.target).val().length;
+                $(event.target).next().text(strVal+'/100');
+            })  
+        })
+    </script>
+    <h3 id="hoverUse">hover이용하기</h3>
+    <img id="imgTarget" src="../img/d.png" width="200" height="200">
+    <!-- <img src="../img/e.jpg" width="200" height="200"> -->
+    <!-- <img src="../img/f.png" width="200" height="200"> -->
+    <script>
+        $(function(){
+            $('img#imgTarget').hover(
+                function(event){
+                    $(event.target).attr('src','../img/e.jpg');
+                },
+                function(event){
+                    $(event.target).attr('src','../img/f.png');
+                }
+            );
+            // hoverUser에 mouseenter font-size 26px
+            // mouseleave font-size 16px
+            $("#hoverUse").hover(
+                (event)=>{
+                    $(event.target).css('fontSize','26px');
+                },
+                (event)=>{
+                    $(event.target).css('fontSize','16px');
+                }
+            );
+        })
+    </script>
+    <h1>trigger</h1>
+    <p id="active">트리거 연습</p>
+    <script>
+        $(function(){
+            $('#active').click(function(){
+                $('h1').trigger('click');
+            })
+            $('h1').click(function(){
+                $(this).css('backgroundColor','pink');
+            })
+        })
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
