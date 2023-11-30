@@ -18,8 +18,11 @@
             'age' :20,
             'addr' :'서울시'
         }
-        JSON.stringify(obj);
         // -> '{"name":"김철수","age":20,"addr":"서울시"}'
+        let val = JSON.stringify(obj);
+        console.log(val, typeof val);
+        val = JSON.parse(val);
+        console.log(val, typeof val);
     </script>
 </body>
 </html>

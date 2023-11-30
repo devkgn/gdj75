@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax+json</title>
+</head>
+<body>
+    <script>
+        const req = new XMLHttpRequest();
+        req.onreadystatechange = function(){
+            if(this.readyState == 4){
+                const data = JSON.parse(this.response);
+                for(let i = 0 ; i < data.length ; i++){
+                    console.log(data[i]);
+                    let txt = '';
+                    txt += '<span class="name">'+data[i]['name']+'</span> : ';
+                    txt += '<span class="style">'+data[i]['style']+'</span><br>';
+                    document.getElementById('container').innerHTML += txt;
+                }
+            }
+        }
+        req.open('GET','json_data.txt');
+        req.send();
+    </script>
+    <div id="container">
+        <span class="name">과일 이름</span> 
+        : 
+        <span class="style">과일 특징</span>
+        <br>
+    </div>
+</body>
+</html>
