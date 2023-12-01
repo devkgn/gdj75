@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 실습문제</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</head>
+<body>
+    <h2>
+        1. 실행 버튼을 클릭하면 
+        사용자에게 '메세지를 입력하세요' 문구가 있는 prompt창을 띄워서 값을 입력받은 다음,
+        id가 test1인 div에 입력받은 내용을 출력하세요.
+    </h2> 
+    <button onclick="test1();">실행</button>
+    <div id="test1"></div>
+    <script>
+        const test1 = () =>{
+            const inputData = prompt('메시지를 입력하세요.');
+            $('#test1').html(inputData);
+        }
+    </script>
+    <h2>
+        2. 실행버튼 클릭시 confirm창에 "개인정보활용에 동의하시겠습니까?"를 띄운후
+        확인을 누르면 "당신의 개인정보가 유출되었습니다."를 출력하고
+        취소를 누르면 "당신의 개인정보는 이미 누출되었습니다."출력
+    </h2>
+    <button onclick="test2();">실행</button>
+    <script>
+        const test2 = function(){
+            let msg = "";
+            if(confirm("개인정보활용에 동의하시겠습니까?")){
+                msg="당신의 개인정보가 유출되었습니다.";
+            }else{
+                msg="당신의 개인정보는 이미 누출되었습니다";
+            }
+            alert(msg);
+        }
+    </script>
+    <h2>
+        3. 실행하기 button을 클릭하면 랜덤(1~100)으로 숫자를 10개 배열에 저장한 후 
+        내림차순으로 정렬하여 div#test3>ul 리스트 태그로 출력하세요. 
+    </h2>
+    <button onclick="test3();">실행하기</button>
+    <div id="test3">
+        <ul></ul>
+    </div>
+    <script>
+        const test3 = function(){
+            let numbers = [];
+            for(let i = 0 ; i < 10 ; i++){
+                numbers.push(Math.floor(Math.random()*100)+1);
+            }
+            numbers.sort((a,b)=>a-b);  
+            const $ul = $('div#test3>ul');
+            numbers.forEach(v=>{
+                $ul.append('<li>'+v+'</li>');
+            })
+        }
+    </script>
+    <h2>
+        4. input태그에 type text name img 이미지 주소를 입력하고
+        출력 button을 클릭하면 입력한 주소의 이미지가 div.imgcontainer 태그에 200X200크기로 출력
+    </h2>
+    <input type="text" name="img">
+    <button onclick="test4();">출력하기</button>
+    <div class="imgcontainer"></div>
+    <script>
+        const test4 = () =>{
+            const src = $('input[name=img]').val();
+            $('.imgcontainer').html('<img width="200" height="200" src="'+src+'">');
+        }
+    </script>
+    <h2>
+        5. id가 targetImg인 img 태그에 첫번째 이미지를 200X200크기로 출력하세요. 
+        그리고, 변경하기 버튼을 클릭하면 이미지 3개의 주소를 배열로 저장한 후, 
+        img 태그에 저장된 3개의 이미지가 순서대로 변경되면서 출력되도록 하세요.
+    </h2>
+    <button onclick="test5();">변경하기</button>
+    <img id="targetImg" src="img/ddoong.png" alt="뚱이" width="200" height="200"/>
+    <script>
+        const test5 = function(){
+            let count = 1;
+            let arr = ['img/ddoong.png','img/jibgae.jpg','img/plankton.jpg'];
+            let timer = setInterval(function(){
+                if(count >2) count = 0;
+                $('#targetImg').attr('src',arr[count]);
+                count++;
+            },1000);
+        }
+    </script>
+    <h2>
+        6. class가 inputdata인 input 태그를 text type으로 구성하고, 
+        작성할때마다 작성된 문자를 div#textcontainer에 h2태그로 누적 출력하세요.
+    </h2>
+    <input type="text" class="inputdata" onkeyup="test6();">
+    <div id="textcontainer"></div>
+    <script>
+        const test6 = () =>{
+            const str = $('.inputdata').val();
+            $('#textcontainer').append('<h2>'+str+'</h2>');
+        }
+    </script>
+    <h2>
+        7. input type password를 두개 만들고 두번째 password 작성시
+        두개의 input 태그의 일치여부를 두번째 input 태그 옆에 출력하세요.
+        두개의 input 태그의 값이 일치할때는 녹색으로 "일치합니다",
+        불일치할때는 빨강색으로 "일치하지 않습니다."를 출력해주세요<br>
+        *구조를 변경하지 않고 출력하세요. 
+    </h2>
+    <input type="password" name="password"/><br>
+    <input type="password" name="password_chk" onkeyup="test7();"/>
+    <style>
+        span.yes{color:green;}
+        span.no{color:red;}
+    </style>
+    <script>
+        const test7 = () =>{
+            const pwList = $('input[type=password]');
+            let pw= pwList.eq(0).val();
+            let pwck = pwList.eq(1).val();
+            if(pw.trim() == pwck.trim()){
+                pwList.eq(1).after('<span class="yes">일치합니다</span>');
+            } else{
+                pwList.eq(1).after('<span class="no">일치하지않습니다</span>');
+            }          
+        }
+    </script>
+    <h2>
+        8. 확인하기 버튼을 클릭하면
+        아래 태그의 데이터를 모두 가져와서
+        3글자 이상인 데이터만 div#checkStr에 출력하세요.<br>
+        * 구조나 속성 추가 금지
+    </h2>
+    <div class="datacontainer">
+        <p>가나다라</p>
+        <p>abcde</p>
+        <h3>썬칩</h3>
+        <h4>홈런볼</h4>
+        <span>초코칩쿠키</span>
+        <p>칸쵸</p>
+        <h4>초코파이</h4>
+        <h2>칙촉</h2>
+    </div>
+    <button onclick="test8()">확인하기</button>
+    <div id="checkStr" style="background-color: azure;"></div>
+    <script>
+        let test8 = () =>{
+            const $all = $('.datacontainer>*');
+            $('#checkStr').html('');
+            for(let i = 0 ; i < $all.length ; i++){
+                if($all.eq(i).text().length >= 3){
+                    $('#checkStr').append($all.eq(i).clone());
+                }
+            }
+        }
+    </script>
+    <h2>
+        9.실행하기 버튼을 누르면, 아래 첫번째 리스트이 값을 가져온 다음,
+        오름차순 정렬한 후 두번째 리스트에 내용 넣어 출력하기
+        * 여기에 채우시오는 출력하지 않음
+    </h2>
+    <div class="datacontainer2">
+        <ul>
+            <li>300</li>
+            <li>100</li>
+            <li>400</li>
+            <li>90</li>
+            <li>200</li>
+            <li>80</li>
+            <li>500</li>
+        </ul>
+        <ul>
+            <li>여기에 채우시오</li>
+        </ul>
+    </div>
+    <button onclick="test9();">실행하기</button>
+    <script>
+        let test9 = () =>{
+            const list = $('.datacontainer2>ul:first-child>li');
+            let listArr = [];
+            list.each(function(){
+                listArr.push($(this).html());
+            })
+            listArr.sort(function(a,b){
+                return a-b;
+            });
+            $('.datacontainer2>ul:nth-child(2)').html('');
+            $.each(listArr,function(index,item){
+                $('.datacontainer2>ul:nth-child(2)').append('<li>'+item+'</li>');
+            })
+        }
+    </script>
+    <h2>
+        10.input type number 태그 2개에 숫자를 입력받고,
+        select 태그에 연산자를 입력받으세요. 
+        이때, 연산자는 +, -, *, / 중 선택하여 입력할 수 있도록 구성하세요.
+        실행 버튼을 눌렀을 때 계산한 결과를 div 영역에 h3로 출력하세요.
+    </h2>
+    <div id="calContainer">
+        <input type="number" name="num1"/>
+        <select name="op" id="op">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="number" name="num2"/>
+        <button onclick="test10();">실행</button>
+        <div></div>
+    </div>
+    <script>
+        const test10 = function(){
+            const nums = $('input[type=number]');
+            const num1 = Number(nums.eq(0).val());
+            const num2 = Number(nums.eq(1).val());
+            const op = $('#op').val();
+            let result;
+            switch(op){
+                case '+' : result = num1+num2;break;
+                case '-' : result = num1-num2;break;
+                case '/' : result = num1/num2;break;
+                case '*' : result = num1*num2;break;
+            }
+            $('#calContainer>div').html('<h3>'+num1+op+num2+'='+result+'</h3>');
+        }
+    </script>
+    <h2>
+        11. 원하는 사진을 한개 출력(100X100)하고 그 사진을 클릭하면 크기가 가로세로 10px씩 증가
+    </h2>
+    <div class="imgcontainer">
+        <img src="https://t1.daumcdn.net/cfile/tistory/24283C3858F778CA2E" alt="강쥐" width="100" height="100" onclick="test11();">
+    </div>
+    <script>
+        function test11(){
+            let img = $('.imgcontainer:last>img');
+            img.width(img.width()+10);
+            img.height(img.height()+10);
+        }
+    </script>
+    	<h2>
+            12. 출력하기 버튼을 클릭하면 이순신, 강감찬, 안중근, 세종대왕, 유관순 데이터를
+                이름순으로 오름차순 정렬하여 div#list>ol에 목록 출력하고,<br>
+                출력하기2 버튼을 클릭하면 정렬한 데이터 중에서 이씨와 강씨만 출력하세요.<br>
+                * 출력하기, 출력하기2를 눌렀을때 이전데이터는 지워지고 출력되어야 함.
+                * 데이터를 오름차순 정렬하는 함수를 만들어서 활용하세요.
+        </h2>
+        <button onclick="test12();">출력하기</button>
+        <button onclick="test12_ex();">출력하기2</button>
+        <div id="listDiv">
+            <ol></ol>
+        </div>
+        <script>
+            const test12 = () =>{
+                const data = ['이순신','강감찬','안중근','세종대왕','유관순'];
+                sortStr(data);
+                const ol = $('div#listDiv>ol');
+                ol.html('');
+                data.forEach(v=>{
+                    ol.append('<li>'+v+'</li>');
+                })
+            }
+            const test12_ex = () =>{
+                const data = ['이순신','강감찬','안중근','세종대왕','유관순'];
+                sortStr(data);
+                const ol = $('div#listDiv>ol');
+                ol.html('');
+                data.forEach(v=>{
+                    if(v.charAt(0)=='강'||v.charAt(0)=='이'){
+                        ol.append('<li>'+v+'</li>');				
+                    }
+                })
+            }
+            const sortStr = (arr) =>{
+                arr.sort((a,b)=>{
+                    if(a>b) return 1;
+                    else if(a<b) return -1;
+                    else return 0;
+                })
+            }
+        </script>
+        <h2>
+            13. 추가 button을 누르면 input type text 태그를
+            div.inputcontainer에 추가하기<br>
+            * input type text는 10개까지만 추가될 수 있음.<br>
+            * 10개이상 추가하려고 하면 "10개까지만 추가할 수 있습니다"를 출력
+        </h2>
+        <div class="inputcontainer">
+            <button onclick="test13();">추가</button>
+        </div>
+        <script>
+            const test13 = () =>{
+                const input = $('<input>',{type:'text'});
+                const leng = $('.inputcontainer>input[type=text]').length;
+                if(leng < 10){
+                    $('.inputcontainer').append(input);
+                } else{
+                    alert('10개까지만 추가할 수 있습니다.');
+                }
+            }
+        </script>
+        <h2>
+            14. 출력 버튼을 클릭하면 객체에 저장된 다음 데이터의 내용을 목록으로 출력하세요.
+            {name:"홍길동",age:50,height:180.5,weight:65.5,addr:"강원도원주시",birthDay:02-03-24}
+        </h2>
+        <div class="listdata">
+            <button onclick="test14();">출력</button>
+            <ul></ul>
+        </div>
+        <script>
+            const test14 = () =>{
+                const data = {name:"홍길동",age:50,height:180.5,weight:65.5,addr:"강원도원주시",birthDay:02-03-24};
+                const ul = $('div.listdata>ul');
+                for(key in data){
+                    ul.append('<li>'+key+' : '+data[key]+'</li>');
+                }
+            }
+        </script>
+        <h2>
+            15. 출력하기 버튼을 클릭히면 다음의 객체배열로 저장된 데이터를 div#dataTbl에 테이블로 출력하세요<br>
+             [{no:1,title:'첫번째',writer:'유저1',enrolldate:오늘날짜}
+             {no:2,title:'두번째',writer:'유저2',enrolldate:오늘날짜}
+             {no:3,title:'세번째',writer:'유저3',enrolldate:오늘날짜}
+             {no:4,title:"네번째",writer:"유저4",enrolldate:오늘날짜}]<br>
+             *오늘날짜는 날짜 정보를 가지고 있는 객체를 활용하세요.
+        </h2>
+        <div id="objArrContainer">
+            <button onclick="test15();">출력하기</button>
+        </div>
+        <script>
+            const test15 = () =>{
+                const datas = [{no:1,title:'첫번째',writer:'유저1',enrolldate:new Date()},
+                             {no:2,title:'두번째',writer:'유저2',enrolldate:new Date()},
+                             {no:3,title:'세번째',writer:'유저3',enrolldate:new Date()},
+                             {no:4,title:"네번째",writer:"유저4",enrolldate:new Date()}]
+                const container = $('#objArrContainer');
+                let table = '<table border="1">';
+                    table += '<tr>';
+                    table += "<th>번호</th><th>제목</th><th>작성자</th><th>작성일</th>";
+                    table += '</tr>';
+                    datas.forEach(v=>{
+                        table += '<tr>';
+                        table+="<td>"+v.no+"</td>";
+                        table+="<td>"+v.title+"</td>";
+                        table+="<td>"+v.writer+"</td>";
+                        table+="<td>"+v.enrolldate+"</td>";
+                        table += '</tr>';
+                    });
+                    table += '</table>';
+                    container.html(table);
+            }
+        </script>
+</body>
+</html>

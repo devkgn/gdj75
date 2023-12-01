@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알록달록 함수예제</title>
+    <style>
+        table{
+            border: 1px solid black;
+            border-collapse:collapse;
+        }
+        table td{
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>rainbowColor</h1>
+    <form id="colorFrm">
+        <table></table>
+    </form>
+    <script>
+        window.onload = function(){
+            const col_arr=[
+                {kor : '빨', eng : 'red'},
+                {kor : '주', eng : 'orange'},
+                {kor : '노', eng : 'yellow'},
+                {kor : '초', eng : 'green'},
+                {kor : '파', eng : 'skyblue'},
+                {kor : '남', eng : 'blue'},
+                {kor : '보', eng : 'purple'}
+            ];
+            const num_arr = ['전체선택:','하나','둘','셋','넷','다섯','여섯','일곱'];
+            let inputList = '';
+            for(let i = 0; i < num_arr.length ; i++){
+                inputList+='<tr>';
+                inputList+='<td>'+num_arr[i]+'</td>'; 
+                inputList+='<td>';   
+                for(let j = 0 ;j < col_arr.length ; j++){
+                    const kor_col = col_arr[j]['kor'];
+                    const eng_col = col_arr[j]['eng'];
+                    const input_event = i === 0 ? 'chooseAll(event);' : 'unCheckOther(event);' ;
+                    inputList+='<input type="checkbox" onchange="'+input_event+'" class="'+eng_col+'" id="'+eng_col+(i+1)+'"';
+                    inputList+='<label for="'+eng_col+(i+1)+'">'+kor_col+'</label>';
+                }
+                inputList+='</td></tr>';
+            }
+            inputList += `<tr>
+                <td colspan="2">
+                    <input type="button" onclick="changeColor();" value="submit">
+                    <input type="reset" value="reset" onclick="resetColor();">
+                </td>
+            </tr>`;
+            document.querySelector('#colorFrm>table').innerHTML+= inputList;
+        }
+
+        const unCheckOther = (e) =>{
+            const parent = e.target.parentElement;
+            if(e.target.checked){
+                const child = parent.children;
+                for(let i = 0 ; i < child.length ; i++){
+                    if(child[i] !== e.target){
+                        child[i].checked = false;
+                    }    
+                }
+                const color = e.target.className;  
+                //parent.style.backgroundColor = color;
+            } else{
+                //parent.style.backgroundColor = '#fff';
+            }
+        }
+
+        const resetColor = () =>{
+            const inputs = document.querySelectorAll('input[type=checkbox]');
+            for(let i = 0 ; i < inputs.length ; i++){
+                inputs[i].checked = false;
+            }
+            const tds = document.querySelectorAll('td');
+            for(let i = 0 ; i < tds.length ; i++){
+                tds[i].style.backgroundColor = '#fff';
+            }
+        }
+
+        const changeColor = () =>{
+            const inputs = document.querySelectorAll('input[type=checkbox]:checked');
+            for(let i = 0 ; i < inputs.length ;i++){      
+                const col = inputs[i].className;
+                const parent = inputs[i].parentElement;
+                parent.style.backgroundColor = col;      
+            }
+        }
+
+        const chooseAll = (e) =>{
+            resetColor();
+            const cls = e.target.className;
+            const inputs = document.querySelectorAll('.'+cls);
+            if(e.target.checked == false){
+                for(let i = 0 ; i < inputs.length ; i++){
+                    inputs[i].checked = true;
+                }
+            }else{
+                console.log(22)
+                for(let i = 0 ; i < inputs.length ; i++){
+                    inputs[i].checked = false;
+                }
+            }
+        } 
+    </script>
+</body>
+</html>
